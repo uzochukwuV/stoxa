@@ -1,0 +1,330 @@
+{%  extends '../base.html' %}
+{% load static %}
+{% block title %}
+
+  STOXA___ HOME
+        {% endblock %}
+
+        {% block css %}
+    <link rel="stylesheet" href="{% static 'home/style.css' %}" />
+
+    {% endblock %}
+
+        {% block content %}
+
+        
+  <body>
+    <header class="uk-container padding">
+      <nav class="uk-flex uk-flex-between uk-flex-middle">
+        <div class="uk-flex uk-flex-between uk-flex-middle logo">
+          <div class="">STOXA</div>
+          <div class="invr">
+            <p class="uk-h6">Invest Right</p>
+
+            <p class="uk-h6">Invest Now</p>
+          </div>
+        </div>
+        <div class="uk-flex uk-flex-between uk-flex-middle nav-flex-item links">
+          <div class="nav-flex-item">
+            <button class="uk-button uk-button-default btn">sign up</button>
+          </div>
+          <div class="nav-flex-item">
+            <span uk-icon="icon: search"></span>
+          </div>
+          <div class="nav-flex-item">
+            <span uk-icon="icon: menu"></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="hspace"></div>
+    <main class="main">
+      <section class="uk-container padding first">
+        <section class="first-content uk-padding s-hero">
+          <div class="invest-text">
+            <h2>Invest Right, Invest Now With Upstox</h2>
+            <p>Trusted by 1 million users</p>
+          </div>
+          <div></div>
+          <div class="agree-text">
+            <p>
+              By signing up, you agree to recieve transaction updates on
+              whatsapp. You may also receive a call from an STOXA representative
+              to help you open the account.
+            </p>
+            <a href="{% url 'login' %}" class="uk-button uk-button-primary" id="number">
+              Sign up
+            </a>
+          </div>
+
+          <div class="achievements reaveal">
+            <div
+              class="uk-child-width-1 uk-text-center"
+              uk-grid="masonry: true"
+            >
+              <div>
+                <div class="uk-child-width-1-2 uk-text-center" uk-grid>
+                  <div>
+                    <div class="uk-card ach">
+                      <p class="align_card">
+                        4.4+<span class="material-symbols-outlined"> </span>
+                      </p>
+                      <p>Avg. app rating</p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="uk-card ach">
+                      <p class="align_card">
+                        <span class="material-symbols-outlined"> </span>0
+                      </p>
+                      <p>AMC</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="uk-child-width-1 uk-text-center" uk-grid>
+              <div>
+                <div class="uk-child-width-1-2 uk-text-center" uk-grid>
+                  <div>
+                    <div class="uk-card ach">
+                      <p class="align_card">
+                        <span class="material-symbols-outlined"> </span>20
+                      </p>
+                      <p>Brokage</p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="uk-card ach">
+                      <p class="">
+                        <span class="material-symbols-sharp"> </span>Tiger
+                        Broker
+                      </p>
+                      <p>Backed by the best</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="second_content"></section>
+      </section>
+      <section id="trader" class="padding reaveal">
+        <div class="trader">
+          <div>Stoxa for investors</div>
+          <div>Invest Right, Invest Now in stocks, Mutual funds and IPOs</div>
+          <div>Learn More</div>
+        </div>
+        <div class="">
+          
+          <div class="plan_image reveal">
+            <div id="exampe-slider" class="sliderm plan_image">
+              <div class="plans sliderm__paginations">
+                <div class="active sliderm__pagination">instant</div>
+                <div class="sliderm__pagination">starter</div>
+                <div class="sliderm__pagination">Premium</div>
+                <div class="sliderm__pagination">Golden</div>
+              </div>
+              <div class="">
+                <div class="plan_image">
+                  <div class="sliderm__slide ">
+                    <div id="plan" class="padding">
+                      <div>instant</div>
+                      <div class="percent">3%</div>
+                      <div>
+                        <p>deposit range</p>
+                        <p><b>£50 - £499</b></p>
+                      </div>
+                      <div>
+                        <p>duration</p>
+                        <p><b>24 hours</b></p>
+                      </div>
+                      <div>
+                        <p>TOTAL ROI</p>
+                        <p><b>3%</b></p>
+                      </div>
+                      <div>
+                        WITHDRAWAL INSTANT
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sliderm__slide">
+                    <div id="plan" class="padding">
+                      <div>stater</div>
+                      <div class="percent">9%</div>
+                      <div>
+                        <p>deposit range</p>
+                        <p><b>£500 - £999</b></p>
+                      </div>
+                      <div>
+                        <p>duration</p>
+                        <p><b>one week</b></p>
+                      </div>
+                      <div>
+                        <p>TOTAL ROI</p>
+                        <p><b>9%</b></p>
+                      </div>
+                      <div>
+                        WITHDRAWAL INSTANT
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sliderm__slide">
+                    <div id="plan" class="padding">
+                      <div>Premium</div>
+                      <div class="percent">12.5%</div>
+                      <div>
+                        <p>deposit range</p>
+                        <p><b>£1000 - £4999</b></p>
+                      </div>
+                      <div>
+                        <p>duration</p>
+                        <p><b>one week</b></p>
+                      </div>
+                      <div>
+                        <p>TOTAL ROI</p>
+                        <p><b>12.5%</b></p>
+                      </div>
+                      <div>
+                        WITHDRAWAL INSTANT
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sliderm__slide">
+                    <div id="plan" class="padding">
+                      <div>Grand</div>
+                      <div class="percent">22%</div>
+                      <div>
+                        <p>deposit range</p>
+                        <p><b>£5000 - £10000</b></p>
+                      </div>
+                      <div>
+                        <p>duration</p>
+                        <p><b> one week</b></p>
+                      </div>
+                      <div>
+                        <p>TOTAL ROI</p>
+                        <p><b>22%</b></p>
+                      </div>
+                      <div>
+                        WITHDRAWAL INSTANT
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="reveal">
+        <div id="classic"></div>
+      </section>
+      <section class="reveal">
+        <div class="plat_text">
+          <div>One Platform</div>
+          <div>Multiple Choices!</div>
+        </div>
+        <div>
+          <div class="plat_text">
+            <h3>Transparent and easy to access</h3>
+          </div>
+
+          <div class="small_text padding">
+            <p>
+              *Zero withdrawal charges applicable to customers onboard after
+              August 2023
+            </p>
+          </div>
+          <div>
+            <button class="btn">view investing options</button>
+          </div>
+        </div>
+      </section>
+      <section id="spec" class="reveal">
+        <div class="spec_text">Don't take our word for it</div>
+        <div id="spec_grid" class="padding">
+          <div class="reviews">
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptates hic quidem adipisci qui temporibus dicta officia, nisi
+              consequatur dolores ut eum ipsa, provident expedita porro, beatae
+              reiciendis quo earum officiis?
+            </div>
+            <div class="profile">
+              <div id="profile_pic"></div>
+              <h3 class="profile_name">BHANU dONALD</h3>
+              <p>Trading on Stox since 2021</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="padding reveal">
+     
+      <section>
+        <div>Contact Us</div>
+        <div>
+          <a href="mailto:stox@gmail.com">info@stoxatrade.com</a>
+        </div>
+        <div>
+          <span class="material-symbols-sharp"></span>
+          22 bloomberg Road , Londom , England, N17GU
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </section>
+      <section>
+        <div></div>
+        <div></div>
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </section>
+    </footer>
+    
+
+        {% endblock %}
+
+         <!-- slider script -->
+    <script src="https://sliderm.com/dist/1.0.8/sliderm.js"></script>
+    <script>
+      const sliderm = new Sliderm("#exampe-slider", {
+        arrow: false,
+        pagination: true,
+        grouping: false,
+        loop: true,
+        preview: false,
+        columns: 4,
+        duration: 100,
+        spacing: 10,
+        align: "center",
+        autoplay: true,
+      });
+      sliderm.on("slide.start", () => {
+        console.log("Just starting to slide!");
+      });
+
+      sliderm.on("slide.end", () => {
+        console.log("The slider is stopped.");
+      });
+    </script>
+    <!-- UIkit JS -->
+    <script src="{% static '/dist/js/uikit.min.js' %}"></script>
+    <script src="{% static '/dist/js/uikit-icons.min.js' %}"></script>
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.23/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.23/dist/js/uikit-icons.min.js"></script>
+
+
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script>
+      ScrollReveal().reveal('.reveal' , { delay: 1200 });
+    </script>
+   
+  </body>
+</html>

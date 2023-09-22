@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "stoxa/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "stoxa/wsgi.py"
+      }
+    ]
+  }
