@@ -1,14 +1,31 @@
 {
-    "builds": [
+  "version": 2,
+  "builds": [
       {
-        "src": "stoxa/wsgi.py",
-        "use": "@vercel/python"
-      }
-    ],
-    "routes": [
+          "src": "stoxa/wsgi.py",
+          "use": "@vercel/python",
+          "config": {
+              "maxLambdaSize": "15mb",
+              "runtime": "python3.9"
+          }
+      },
       {
-        "src": "/(.*)",
-        "dest": "stoxa/wsgi.py"
+          "src": "build.sh",
+          "use": "@vercel/static-build",
+          "config": {
+              "distDir": "staticfiles_build"
+          }
       }
-    ]
-  }
+  ],
+  "routes": [
+      {
+          "src": "/static/(.*)",
+          "dest": "/static/$1"
+      },
+      {
+          "src": "/(.*)",
+          "dest": "stoxa/wsgi.py"
+      }
+  ]
+
+}
