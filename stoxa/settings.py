@@ -78,13 +78,25 @@ WSGI_APPLICATION = 'stoxa.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
+POSTGRES_URL="postgres://default:mPrwRMoQYZ96@ep-proud-cloud-00568706-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb"
+POSTGRES_PRISMA_URL="postgres://default:mPrwRMoQYZ96@ep-proud-cloud-00568706-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb?pgbouncer=true&connect_timeout=15"
+POSTGRES_URL_NON_POOLING="postgres://default:mPrwRMoQYZ96@ep-proud-cloud-00568706.us-east-1.postgres.vercel-storage.com:5432/verceldb"
+POSTGRES_USER="default"
+POSTGRES_HOST="ep-proud-cloud-00568706-pooler.us-east-1.postgres.vercel-storage.com"
+POSTGRES_PASSWORD="mPrwRMoQYZ96"
+POSTGRES_DATABASE="verceldb"
+
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'stoxa',
+       'USER': POSTGRES_USER,
+       'PASSWORD': POSTGRES_PASSWORD,
+       'HOST': POSTGRES_HOST,
+       'PORT': 5043,
+   }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -117,10 +129,13 @@ USE_I18N = True
 USE_TZ = True
 
 
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR/ "staticfiles_build"/ "static"
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
