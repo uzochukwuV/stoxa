@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+asgiref = "==3.7.2"
+django = "*"
+django-crontab = "==0.7.1"
+pillow = "==10.0.1"
+psycopg2 = ">=2.7.7"
+sqlparse = "==0.4.4"
+tzdata = "==2023.3"
+
+python_version = "3.11"
