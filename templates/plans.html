@@ -1,0 +1,122 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/plans.css' %}">
+<section class="container plan_container" >
+    <div>
+        <p>Select a Daily Investment Plan</p>
+    </div>
+    <div class="plan_div">
+        <div class="plan_item d-flex flex-column gap-3">
+            <div class="plan_one">
+                <div>
+                    <p>Weekly</p>
+                    <p class="text-small">Starter Plan</p>
+                </div>
+                <div>
+                    <img src="{% static 'images/bitcoin.svg' %}" alt="">
+                </div>
+            </div>
+            <div class="plan_two">
+                <div>
+                    <p>
+                        <sup class="price_sign">$</sup>
+                        <span class="price">$250</span>
+                        <span>min</span>
+                    </p>
+                </div>
+                <div>
+                    <button class="btn plan_btn">upgrade now</button>
+                </div>
+            </div>
+            <div>
+                <ul>
+                    <li class="text-small">Min invest $250.00 usd</li>
+                    <li class="text-small">Max invest  $999.00 usd</li>
+                    <li class="text-small">Live support </li>
+                    <li class="text-small">Immediate withdrawal</li>
+                </ul>
+            </div>
+            <div>
+                <div class="input-group border p-2">
+                    <input type="text" class="plans_input form-control">
+                    <button class="btn plan_btn" type="button">invest</button>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="plan_item d-flex flex-column gap-3">
+            <div class="plan_one">
+                <div>
+                    <p>Weekly</p>
+                    <p class="text-small">Intermediate Plan</p>
+                </div>
+                <div>
+                    <img src="{% static 'images/bitcoin.svg' %}" alt="">
+                </div>
+            </div>
+            <div class="plan_two">
+                <div>
+                    <p>
+                        <sup class="price_sign">$</sup>
+                        <span class="price">$1000</span>
+                        <span>min</span>
+                    </p>
+                </div>
+                <div>
+                    <button class="btn plan_btn">upgrade now</button>
+                </div>
+            </div>
+            <div>
+                <ul class="text-small">
+                    <li>Min invest $1000.00 usd</li>
+                    <li>Max invest  $1999.00 usd</li>
+                    <li>Live support </li>
+                    <li>Immediate withdrawal</li>
+                </ul>
+            </div>
+            <div>
+                <div class="input-group border p-2">
+                    <input type="text" class="plans_input form-control">
+                    <button class="btn plan_btn" type="button">invest</button>
+                  </div>
+            </div>
+        </div>
+        <div class="plan_item d-flex flex-column gap-3">
+            <div class="plan_one">
+                <div>
+                    <p>Bi-monthly</p>
+                    <p class="text-small">Premium Plan</p>
+                </div>
+                <div>
+                    <img src="{% static 'images/bitcoin.svg' %}" alt="">
+                </div>
+            </div>
+            <div class="plan_two">
+                <div>
+                    <p>
+                        <sup class="price_sign">$</sup>
+                        <span class="price">$5000</span>
+                        <span>min</span>
+                    </p>
+                </div>
+                <div>
+                    <button class="btn plan_btn">upgrade now</button>
+                </div>
+            </div>
+            <div>
+                <ul class="text-small">
+                    <li>Min invest $5000.00 usd</li>
+                    <li>Max invest  $9999.00 usd</li>
+                    <li>Live support </li>
+                    <li>Immediate withdrawal</li>
+                </ul>
+            </div>
+            <div>
+                <div class="input-group border p-2">
+                    <input type="text" class="plans_input form-control">
+                    <button class="btn plan_btn" type="button">invest</button>
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+{% extends 'myheader.html' %}
+{% load static %}
+
+{% block content %}
+   <main>
+    <div class="px-3 py-1  border-bottom">
+        <div class="container bg-primary">
+            <div class="d-flex justify-space-between">
+                <div class="d-flex gap-2 bg-light">
+                   <div class="container  balance_container  p-4" style="max-width: 400px; border-radius: 15px;">
+                    <div>
+                        <p class="text-secondary mb-0 ">Total balance </p>
+                    </div>
+                    <div>
+                        <p class="fs-1 text-black text-bold fw-medium">$ 7800</p>
+                    </div>
+                    <div>
+                        <p class="text-dark mt-1">Total Gain <i class="text-primary">9%</i></p>
+                    </div>
+                    <div class="line border border-primary w-25" ></div>
+                   </div>
+                   <div class="h-100 d-flex align-items-end">
+                        <div class="border btn p-3 mb-4" style="min-width: 250px;">
+                            <img src="{% static 'images/addmoney.svg' %}" style="transform: rotateX('59deg');"  alt="">
+                            Add money
+                        </div>
+                   </div>
+                </div>
+                <div class="btc" >
+                    <img src="{% static 'images/bitcoin.svg' %}" style="transform: rotateX('59deg');" height="200px" width="300px" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        {% include 'plans.html' %}
+    </div>
+    <!-- Plans -->
+    
+  
+   </main>
+
+    {% endblock %}
+

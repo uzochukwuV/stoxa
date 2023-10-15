@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,20 +29,22 @@ SECRET_KEY = 'django-insecure-z4aj@q&&75v_8lv&fede7@c-3h&503ju$5$rdcg=^dwbeg=pjh
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'custom.PrimaryUser'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'custom',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'custom',
-    'django_crontab',
+    
+    
 ]
+
 
 WSGI_APPLICATION = 'stoxa.wsgi.app'
 
@@ -79,24 +83,19 @@ WSGI_APPLICATION = 'stoxa.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-POSTGRES_URL="postgres://default:mPrwRMoQYZ96@ep-proud-cloud-00568706-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb"
-POSTGRES_PRISMA_URL="postgres://default:mPrwRMoQYZ96@ep-proud-cloud-00568706-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb?pgbouncer=true&connect_timeout=15"
-POSTGRES_URL_NON_POOLING="postgres://default:mPrwRMoQYZ96@ep-proud-cloud-00568706.us-east-1.postgres.vercel-storage.com:5432/verceldb"
-POSTGRES_USER="default"
-POSTGRES_HOST="ep-proud-cloud-00568706-pooler.us-east-1.postgres.vercel-storage.com"
-POSTGRES_PASSWORD="mPrwRMoQYZ96"
-POSTGRES_DATABASE="verceldb"
 
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'stoxa',
-       'USER': POSTGRES_USER,
-       'PASSWORD': POSTGRES_PASSWORD,
-       'HOST': POSTGRES_HOST,
-       'PORT': 5043,
+       'NAME': 'stoxadb',
+       'USER': 'postgres',
+       'PASSWORD': 'Hap2#',
+       'HOST': 'localhost',
+       
    }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -139,14 +138,10 @@ STATIC_ROOT = BASE_DIR/ "staticfiles_build"/ "static"
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    '/var/www/static/',
+    # '/var/www/static/',
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRONJOBS = [
-    ('*/2   *  *  *  *',
-     'custom.cron.mycronjob'),
-]

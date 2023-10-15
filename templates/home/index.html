@@ -1,330 +1,745 @@
-{%  extends '../base.html' %}
+
+
+{% extends 'base.html' %}
+
 {% load static %}
-{% block title %}
 
-  STOXA___ HOME
-        {% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        {% block css %}
-    <link rel="stylesheet" href="{% static 'home/style.css' %}" />
+    <!-- Title -->
+    <title>Stoxafx | User friendly and affordable</title>
 
-    {% endblock %}
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./favicon.ico">
 
-        {% block content %}
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
-        
-  <body>
-    <header class="uk-container padding">
-      <nav class="uk-flex uk-flex-between uk-flex-middle">
-        <div class="uk-flex uk-flex-between uk-flex-middle logo">
-          <div class="">STOXA</div>
-          <div class="invr">
-            <p class="uk-h6">Invest Right</p>
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="{% static 'css/vendor.min.css' %}">
 
-            <p class="uk-h6">Invest Now</p>
-          </div>
-        </div>
-        <div class="uk-flex uk-flex-between uk-flex-middle nav-flex-item links">
-          <div class="nav-flex-item">
-            <button class="uk-button uk-button-default btn">sign up</button>
-          </div>
-          <div class="nav-flex-item">
-            <span uk-icon="icon: search"></span>
-          </div>
-          <div class="nav-flex-item">
-            <span uk-icon="icon: menu"></span>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <div class="hspace"></div>
-    <main class="main">
-      <section class="uk-container padding first">
-        <section class="first-content uk-padding s-hero">
-          <div class="invest-text">
-            <h2>Invest Right, Invest Now With Upstox</h2>
-            <p>Trusted by 1 million users</p>
-          </div>
-          <div></div>
-          <div class="agree-text">
-            <p>
-              By signing up, you agree to recieve transaction updates on
-              whatsapp. You may also receive a call from an STOXA representative
-              to help you open the account.
-            </p>
-            <a href="{% url 'login' %}" class="uk-button uk-button-primary" id="number">
-              Sign up
-            </a>
-          </div>
+    <!-- CSS Unify Template -->
+    <link rel="stylesheet" href="{% static 'css/theme.min.css' %}">
+    <a href="https://storyset.com/business">Business illustrations by Storyset</a>
+    <style class="fslightbox-styles">
+       
+    </style>
+    <script type="module" src="chrome-extension://jdkknkkbebbapilgoeccciglkfbmbnfm/hook.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+</head>
 
-          <div class="achievements reaveal">
-            <div
-              class="uk-child-width-1 uk-text-center"
-              uk-grid="masonry: true"
-            >
-              <div>
-                <div class="uk-child-width-1-2 uk-text-center" uk-grid>
-                  <div>
-                    <div class="uk-card ach">
-                      <p class="align_card">
-                        4.4+<span class="material-symbols-outlined"> </span>
-                      </p>
-                      <p>Avg. app rating</p>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="uk-card ach">
-                      <p class="align_card">
-                        <span class="material-symbols-outlined"> </span>0
-                      </p>
-                      <p>AMC</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="uk-child-width-1 uk-text-center" uk-grid>
-              <div>
-                <div class="uk-child-width-1-2 uk-text-center" uk-grid>
-                  <div>
-                    <div class="uk-card ach">
-                      <p class="align_card">
-                        <span class="material-symbols-outlined"> </span>20
-                      </p>
-                      <p>Brokage</p>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="uk-card ach">
-                      <p class="">
-                        <span class="material-symbols-sharp"> </span>Tiger
-                        Broker
-                      </p>
-                      <p>Backed by the best</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="second_content"></section>
-      </section>
-      <section id="trader" class="padding reaveal">
-        <div class="trader">
-          <div>Stoxa for investors</div>
-          <div>Invest Right, Invest Now in stocks, Mutual funds and IPOs</div>
-          <div>Learn More</div>
-        </div>
-        <div class="">
-          
-          <div class="plan_image reveal">
-            <div id="exampe-slider" class="sliderm plan_image">
-              <div class="plans sliderm__paginations">
-                <div class="active sliderm__pagination">instant</div>
-                <div class="sliderm__pagination">starter</div>
-                <div class="sliderm__pagination">Premium</div>
-                <div class="sliderm__pagination">Golden</div>
-              </div>
-              <div class="">
-                <div class="plan_image">
-                  <div class="sliderm__slide ">
-                    <div id="plan" class="padding">
-                      <div>instant</div>
-                      <div class="percent">3%</div>
-                      <div>
-                        <p>deposit range</p>
-                        <p><b>£50 - £499</b></p>
-                      </div>
-                      <div>
-                        <p>duration</p>
-                        <p><b>24 hours</b></p>
-                      </div>
-                      <div>
-                        <p>TOTAL ROI</p>
-                        <p><b>3%</b></p>
-                      </div>
-                      <div>
-                        WITHDRAWAL INSTANT
-                      </div>
-                    </div>
-                  </div>
-                  <div class="sliderm__slide">
-                    <div id="plan" class="padding">
-                      <div>stater</div>
-                      <div class="percent">9%</div>
-                      <div>
-                        <p>deposit range</p>
-                        <p><b>£500 - £999</b></p>
-                      </div>
-                      <div>
-                        <p>duration</p>
-                        <p><b>one week</b></p>
-                      </div>
-                      <div>
-                        <p>TOTAL ROI</p>
-                        <p><b>9%</b></p>
-                      </div>
-                      <div>
-                        WITHDRAWAL INSTANT
-                      </div>
-                    </div>
-                  </div>
-                  <div class="sliderm__slide">
-                    <div id="plan" class="padding">
-                      <div>Premium</div>
-                      <div class="percent">12.5%</div>
-                      <div>
-                        <p>deposit range</p>
-                        <p><b>£1000 - £4999</b></p>
-                      </div>
-                      <div>
-                        <p>duration</p>
-                        <p><b>one week</b></p>
-                      </div>
-                      <div>
-                        <p>TOTAL ROI</p>
-                        <p><b>12.5%</b></p>
-                      </div>
-                      <div>
-                        WITHDRAWAL INSTANT
-                      </div>
-                    </div>
-                  </div>
-                  <div class="sliderm__slide">
-                    <div id="plan" class="padding">
-                      <div>Grand</div>
-                      <div class="percent">22%</div>
-                      <div>
-                        <p>deposit range</p>
-                        <p><b>£5000 - £10000</b></p>
-                      </div>
-                      <div>
-                        <p>duration</p>
-                        <p><b> one week</b></p>
-                      </div>
-                      <div>
-                        <p>TOTAL ROI</p>
-                        <p><b>22%</b></p>
-                      </div>
-                      <div>
-                        WITHDRAWAL INSTANT
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="reveal">
-        <div id="classic"></div>
-      </section>
-      <section class="reveal">
-        <div class="plat_text">
-          <div>One Platform</div>
-          <div>Multiple Choices!</div>
-        </div>
-        <div>
-          <div class="plat_text">
-            <h3>Transparent and easy to access</h3>
-          </div>
-
-          <div class="small_text padding">
-            <p>
-              *Zero withdrawal charges applicable to customers onboard after
-              August 2023
-            </p>
-          </div>
-          <div>
-            <button class="btn">view investing options</button>
-          </div>
-        </div>
-      </section>
-      <section id="spec" class="reveal">
-        <div class="spec_text">Don't take our word for it</div>
-        <div id="spec_grid" class="padding">
-          <div class="reviews">
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptates hic quidem adipisci qui temporibus dicta officia, nisi
-              consequatur dolores ut eum ipsa, provident expedita porro, beatae
-              reiciendis quo earum officiis?
-            </div>
-            <div class="profile">
-              <div id="profile_pic"></div>
-              <h3 class="profile_name">BHANU dONALD</h3>
-              <p>Trading on Stox since 2021</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="padding reveal">
-     
-      <section>
-        <div>Contact Us</div>
-        <div>
-          <a href="mailto:stox@gmail.com">info@stoxatrade.com</a>
-        </div>
-        <div>
-          <span class="material-symbols-sharp"></span>
-          22 bloomberg Road , Londom , England, N17GU
-        </div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </section>
-      <section>
-        <div></div>
-        <div></div>
-        <div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </section>
-    </footer>
-    
-
-        {% endblock %}
-
-         <!-- slider script -->
-    <script src="https://sliderm.com/dist/1.0.8/sliderm.js"></script>
-    <script>
-      const sliderm = new Sliderm("#exampe-slider", {
-        arrow: false,
-        pagination: true,
-        grouping: false,
-        loop: true,
-        preview: false,
-        columns: 4,
-        duration: 100,
-        spacing: 10,
-        align: "center",
-        autoplay: true,
-      });
-      sliderm.on("slide.start", () => {
-        console.log("Just starting to slide!");
-      });
-
-      sliderm.on("slide.end", () => {
-        console.log("The slider is stopped.");
-      });
-    </script>
-    <!-- UIkit JS -->
-    <script src="{% static '/dist/js/uikit.min.js' %}"></script>
-    <script src="{% static '/dist/js/uikit-icons.min.js' %}"></script>
-    <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.23/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.23/dist/js/uikit-icons.min.js"></script>
-
-
-    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-    <script>
-      ScrollReveal().reveal('.reveal' , { delay: 1200 });
-    </script>
+<body>
+    <!-- ========== HEADER ========== -->
    
-  </body>
+
+    <!-- ========== END HEADER ========== -->
+    {% block content %}
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" role="main">
+        <!-- Hero -->
+        <div class="container content-space-t-3 hero" >
+            <div class="row justify-content-lg-between align-items-lg-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="mb-5">
+                        <h1 class="display-4 text-dark mb-5">Start your journey with <span
+                                class="text-primary">Stoxafx</span></h1>
+                        <p class="fs-3">Grow with the most highly profitable forex and crypto trading firm and put your money to work</p>
+                    </div>
+
+                    <div class="d-grid d-sm-flex gap-3 mb-5">
+                        <a class="btn btn-primary" href="{% url 'login' %}">Subscribe</a>
+                        <a class="btn btn-ghost-dark btn-pointer" href="{% url 'register' %}">Sign up free</a>
+                    </div>
+                </div>
+                <!-- End Col -->
+
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{% static 'images/tima.jpg' %}" alt="Image Description">
+
+                            <div class="position-absolute bottom-0 end-0">
+                                <img class="w-100" src="{% static 'images/fillout.svg' %}" alt="SVG"
+                                    style="max-width: 30rem;">
+                            </div>
+                        </div>
+
+                        <!-- Media -->
+                        <div class="d-inline-block position-absolute top-0 start-0 bg-white w-100 rounded-pill shadow-sm p-2 mt-5 ms-n5"
+                            style="max-width: 12rem;">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0">
+                                    <span class="avatar avatar-sm avatar-circle">
+                                        <img class="avatar-img" src="{% static 'images/mancom.jpg' %}"
+                                            alt="Image Description">
+                                    </span>
+                                </div>
+                                <div class="flex-grow-1 ms-2">
+                                    <div class="fs-5 fw-bold mb-0">Julia</div>
+                                    <span class="d-block fs-6">Fantastic Deals!</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Media -->
+
+                        <!-- Media -->
+                        <div class="d-inline-block position-absolute bottom-0 start-0 bg-warning w-100 rounded-pill shadow-sm p-2 mb-10 ms-n10"
+                            style="max-width: 16rem;">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0">
+                                    <span class="avatar avatar-sm avatar-circle">
+                                        <img class="avatar-img" src="{% static 'images/mancom.jpg' %}"
+                                            alt="Image Description">
+                                    </span>
+                                </div>
+                                <div class="flex-grow-1 ms-2">
+                                    <div class="fs-5 fw-bold text-dark mb-0">Michael</div>
+                                    <span class="d-block fs-6 text-dark">Excellent Forex deals 🔥👋</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Media -->
+                    </div>
+                </div>
+                <!-- End Col -->
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Hero -->
+
+        <!-- Icon Blocks -->
+        <div class="container content-space-t-2 content-space-t-lg-3">
+            <div class="row">
+                <div class="col-sm-6 col-lg mb-5 mb-lg-0">
+                    <!-- Icon Block -->
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <i class="bi-phone fs-1 text-dark"></i>
+                        </div>
+
+                        <h5>Trusted Insights</h5>
+                        <span class="d-block">Our team of experts and data-driven technology ensure that you get the most reliable information</span>
+                    </div>
+                    <!-- End Icon Block -->
+                </div>
+                <!-- End Col -->
+
+                <div class="col-sm-6 col-lg mb-5 mb-lg-0">
+                    <!-- Icon Block -->
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <i class="bi-toggles2 fs-1 text-dark"></i>
+                        </div>
+
+                        <h5>Maximize Profits</h5>
+                        <span class="d-block">Leverage our market knowledge to make smarter investment choices and potentially boost your profits</span>
+                    </div>
+                    <!-- End Icon Block -->
+                </div>
+                <!-- End Col -->
+
+                <div class="col-sm-6 col-lg mb-5 mb-sm-0">
+                    <!-- Icon Block -->
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <i class="bi-file-earmark-text fs-1 text-dark"></i>
+                        </div>
+
+                        <h5>Transparency</h5>
+                        <span class="d-block">Transparency is a fundamental principle that we are built on,  trust and credibility</span>
+                    </div>
+                    <!-- End Icon Block -->
+                </div>
+                <!-- End Col -->
+
+                <div class="col-sm-6 col-lg">
+                    <!-- Icon Block -->
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <i class="bi-chat-right-dots fs-1 text-dark"></i>
+                        </div>
+
+                        <h5>24/7 Support</h5>
+                        <span class="d-block">Contact us 24 hours a day, 7 days a week.</span>
+                    </div>
+                    <!-- End Icon Block -->
+                </div>
+                <!-- End Col -->
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Icon Blocks -->
+
+        <!-- Features -->
+        <div class="overflow-hidden">
+            <div class="container content-space-2 content-space-lg-3">
+                <div class="row align-items-lg-center">
+                    <div class="col-lg-7 me-auto ms-lg-n10 mb-5 mb-lg-0">
+                        <div class="row align-items-center">
+                            <div class="col-4">
+                                <img class="img-fluid rounded-3" src="{% static 'images/sub.jpg'  %}"
+                                    alt="Image Description">
+                            </div>
+                            <!-- End Col -->
+
+                            <div class="col-3">
+                                <img class="img-fluid rounded-3" src="{% static 'images/marimo.jpg'  %}"
+                                    alt="Image Description">
+                            </div>
+                            <!-- End Col -->
+
+                            <div class="col-5">
+                                <img class="img-fluid rounded-3" src="{% static 'images/sub.jpg'  %}"
+                                    alt="Image Description">
+                            </div>
+                            <!-- End Col -->
+                        </div>
+                        <!-- End Row -->
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-lg-5">
+                        <div class="mb-5">
+                            <h2>Our Goals</h2>
+                            <p>With our primary focus on our subscribers, we aim to cater for the needs of each investment and prefences to its users through</p>
+                        </div>
+
+                        <!-- List Checked -->
+                        <ul class="list-checked list-checked-soft-bg-primary list-checked-lg">
+                            <li class="list-checked-item"><span class="fw-bold">Safety</span> – we preserve the initial capital which helps in risk management
+                            </li>
+                            <li class="list-checked-item"><span class="fw-bold">Income</span> - we help build a steady stream of income through minimal investments</li>
+                            <li class="list-checked-item"><span class="fw-bold"></span>Capital Gains</span> we are more interested in growing your wealth through capital appreciation</li>
+                        </ul>
+                        <!-- End List Checked -->
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+            </div>
+        </div>
+        <!-- End Features -->
+
+        <!-- Icon Blocks -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-4 mb-5">
+                    <div class="text-center px-md-5">
+                        <div class="mb-3">
+                            <i class="bi-tablet-landscape fs-1 text-dark"></i>
+                        </div>
+                        <p>Unify is an <span class="fw-bold">incredibly beautiful</span> and mobile-first project on the
+                            web.</p>
+                    </div>
+                </div>
+                <!-- End Col -->
+
+                <div class="col-sm-6 col-lg-4 mb-5">
+                    <div class="text-center px-md-5">
+                        <div class="mb-3">
+                            <i class="bi-shield-check fs-1 text-dark"></i>
+                        </div>
+                        <p>Unify is not only for developers but also for designers, and <span class="fw-bold">includes a
+                                Figma</span> file.</p>
+                    </div>
+                </div>
+                <!-- End Col -->
+
+                <div class="col-sm-6 col-lg-4 mb-5">
+                    <div class="text-center px-md-5">
+                        <div class="mb-3">
+                            <i class="bi-hdd-network fs-1 text-dark"></i>
+                        </div>
+                        <p><span class="fw-bold">Whether you're a startup</span> or a global enterprise, learn how to
+                            integrate with Unify.</p>
+                    </div>
+                </div>
+                <!-- End Col -->
+
+                <div class="col-sm-6 col-lg-4 mb-5 mb-lg-0">
+                    <div class="text-center px-md-5">
+                        <div class="mb-3">
+                            <i class="bi-gear fs-1 text-dark"></i>
+                        </div>
+                        <p>Use Unify thoroughly thought and automated libraries to <span class="fw-bold">manage your
+                                businesses</span>.</p>
+                    </div>
+                </div>
+                <!-- End Col -->
+
+                <div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+                    <div class="text-center px-md-5">
+                        <div class="mb-3">
+                            <i class="bi-sliders fs-1 text-dark"></i>
+                        </div>
+                        <p>Unify template can be <span class="fw-bold">easily customized</span> with its cutting-edge
+                            components.</p>
+                    </div>
+                </div>
+                <!-- End Col -->
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="text-center px-md-5">
+                        <div class="mb-3">
+                            <i class="bi-journal-text fs-1 text-dark"></i>
+                        </div>
+                        <p>Every component and plugin is <span class="fw-bold">well documented</span> with live
+                            examples.</p>
+                    </div>
+                </div>
+                <!-- End Col -->
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Icon Blocks -->
+
+        <!-- Features -->
+        <div class="container content-space-t-2 content-space-t-lg-3">
+            <div class="row justify-content-lg-between align-items-lg-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img class="img-fluid rounded-3" src="{% static 'images/piac.jpg'  %}" alt="Image Description">
+                </div>
+                <!-- End Col -->
+
+                <div class="col-lg-5">
+                    <div class="mb-5">
+                        <h2>We tackle the challenges traders face for you</h2>
+                        <p>Besides working with top notch traders as a partner for digitalization, we have built
+                            enterprise platform for common pain points that we have encountered in various platforms and
+                            projects.</p>
+                    </div>
+
+                    <!-- List Checked -->
+                    <ul class="list-checked list-checked-soft-bg-primary list-checked-lg mb-5">
+                        <li class="list-checked-item"><span class="fw-bold">Easy &amp; fast</span> withdrawal</li>
+                        <li class="list-checked-item">Minimal <span class="fw-bold"> capital </span></li>
+                        <li class="list-checked-item">Trusted Enterprise</li>
+                    </ul>
+                    <!-- End List Checked -->
+
+                    <a class="btn btn-primary" href="#">Our services</a>
+                </div>
+                <!-- End Col -->
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Features -->
+
+        <!-- Stats -->
+        <div class="container content-space-2 content-space-lg-3">
+            <div class="row justify-content-lg-between align-items-lg-center">
+                <div class="col-lg-5 mb-9 mb-lg-0">
+                    <div class="mb-6">
+                        <h2>It's all about adaptation</h2>
+                        <p>We provide you with services that are adapted and refined for various trusted sources. Our main focus is getting
+                            you to the top as soon as we can.</p>
+                    </div>
+
+                    <!-- Blockquote -->
+                    <figure>
+                        <blockquote class="blockquote"><em>Trading in the forex market is like navigating a ship on an open sea. It requires skill,
+                             knowledge, and the ability to adapt to changing conditions</em></blockquote>
+
+                        <figcaption class="blockquote-footer">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0">
+                                    <img class="avatar avatar-circle" src="{% static 'images/sub.jpg' %}"
+                                        alt="Image Description">
+                                </div>
+
+                                <div class="flex-grow-1 ms-3">
+                                    Josh Grazioso
+                                    <span class="blockquote-footer-source">Director Payments &amp; Risk | Stoxafx</span>
+                                </div>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <!-- End Blockquote -->
+                </div>
+                <!-- End Col -->
+
+                <div class="col-lg-6">
+                    <!-- List -->
+                    <ul class="list-equal-height list-equal-height-2-cols">
+                        <li class="list-equal-height-item">
+                            <h4 class="display-5">45k+</h4>
+                            <p class="mb-0">users - from new startups to public companies</p>
+                        </li>
+
+                        <li class="list-equal-height-item">
+                            <h4 class="display-5"><sub><i class="bi-arrow-up-short text-primary ms-n2"></i></sub>23%
+                            </h4>
+                            <p class="mb-0">increase in traffic on webpages with Looms</p>
+                        </li>
+
+                        <li class="list-equal-height-item">
+                            <h4 class="display-5"><sub><i class="bi-arrow-up-short text-primary ms-n2"></i></sub>9.3%
+                            </h4>
+                            <p class="mb-0">boost in reply rates across sales outreach</p>
+                        </li>
+
+                        <li class="list-equal-height-item">
+                            <h4 class="display-5">2x</h4>
+                            <p class="mb-0">faster than previous Unify versions</p>
+                        </li>
+                    </ul>
+                    <!-- End List -->
+                </div>
+                <!-- End Col -->
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Stats -->
+
+        <!-- Clients -->
+        <div class="container">
+            <!-- Swiper Slider -->
+            <div
+                class="js-swiper-clients swiper text-center swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
+                <div class="swiper-wrapper" id="swiper-wrapper-c1b1cff057761042d" aria-live="polite"
+                    style="transform: translate3d(0px, 0px, 0px);">
+                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 5"
+                        style="width: 162px; margin-right: 15px;">
+                        <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/mailchimp-dark.svg"
+                            alt="Logo">
+                    </div>
+                    <!-- End Slide -->
+
+                    <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 5"
+                        style="width: 162px; margin-right: 15px;">
+                        <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/sass-dark.svg" alt="Logo">
+                    </div>
+                    <!-- End Slide -->
+
+                    <div class="swiper-slide" role="group" aria-label="3 / 5" style="width: 162px; margin-right: 15px;">
+                        <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/forbes-dark.svg" alt="Logo">
+                    </div>
+                    <!-- End Slide -->
+
+                    <div class="swiper-slide" role="group" aria-label="4 / 5" style="width: 162px; margin-right: 15px;">
+                        <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/gitlab-dark.svg" alt="Logo">
+                    </div>
+                    <!-- End Slide -->
+
+                    <div class="swiper-slide" role="group" aria-label="5 / 5" style="width: 162px; margin-right: 15px;">
+                        <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/hubspot-dark.svg" alt="Logo">
+                    </div>
+                    <!-- End Slide -->
+                </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+            <!-- End Swiper Slider -->
+        </div>
+        <!-- End Clients -->
+
+        <!-- Card Grid -->
+     
+        <!-- End Card Grid -->
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-dark">
+        <div class="container">
+            <div class="row align-items-center pt-8 pb-4">
+                <div class="col-md mb-5 mb-md-0">
+                    <h2 class="fw-medium text-white-70 mb-0">Join the thriving<br><span
+                            class="fw-bold text-white">Unify</span> business agency</h2>
+                </div>
+                <!-- End Col -->
+
+                <div class="col-md-auto">
+                    <div class="d-grid d-sm-flex gap-3">
+                        <a class="btn btn-primary" href="#">Request demo</a>
+                        <a class="btn btn-ghost-light btn-pointer" href="#">Sign up free</a>
+                    </div>
+                </div>
+                <!-- End Col -->
+            </div>
+            <!-- End Row -->
+
+            <div class="border-bottom border-white-10">
+                <div class="row py-6">
+                    <div class="col-6 col-sm-4 col-lg mb-7 mb-lg-0">
+                        <span class="text-cap text-white">Resources</span>
+
+                        <!-- List -->
+                        <ul class="list-unstyled list-py-1 mb-0">
+                            <li><a class="link link-light link-light-75" href="#">Blog</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Guidance</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Customer Stories</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Support <i
+                                        class="bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li><a class="link link-light link-light-75" href="#">API</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Packages</a></li>
+                        </ul>
+                        <!-- End List -->
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-6 col-sm-4 col-lg mb-7 mb-lg-0">
+                        <span class="text-cap text-white">Company</span>
+
+                        <!-- List -->
+                        <ul class="list-unstyled list-py-1 mb-0">
+                            <li><a class="link link-light link-light-75" href="#">Belonging <i
+                                        class="bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li><a class="link link-light link-light-75" href="#">Company</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Careers</a> <span
+                                    class="fs-6 fw-bold text-primary">— We're hiring</span></li>
+                            <li><a class="link link-light link-light-75" href="#">Contacts</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Security</a></li>
+                        </ul>
+                        <!-- End List -->
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-6 col-sm-4 col-lg mb-7 mb-sm-0">
+                        <span class="text-cap text-white">Platform</span>
+
+                        <!-- List -->
+                        <ul class="list-unstyled list-py-1 mb-0">
+                            <li><a class="link link-light link-light-75" href="#">Web</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Mobile</a></li>
+                            <li><a class="link link-light link-light-75" href="#">iOS</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Android</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Figma Importing</a></li>
+                        </ul>
+                        <!-- End List -->
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-6 col-sm-4 col-lg mb-7 mb-sm-0">
+                        <span class="text-cap text-white">Legal</span>
+
+                        <!-- List -->
+                        <ul class="list-unstyled list-py-1 mb-5">
+                            <li><a class="link link-light link-light-75" href="#">Terms of use</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Privacy policy <i
+                                        class="bi-box-arrow-up-right ms-1"></i></a></li>
+                        </ul>
+                        <!-- End List -->
+
+                        <span class="text-cap text-white">Docs</span>
+
+                        <!-- List -->
+                        <ul class="list-unstyled list-py-1 mb-0">
+                            <li><a class="link link-light link-light-75" href="#">Documentation</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Snippets</a></li>
+                        </ul>
+                        <!-- End List -->
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-6 col-sm-4 col-lg">
+                        <span class="text-cap text-white">Follow us</span>
+
+                        <!-- List -->
+                        <ul class="list-unstyled list-py-2 mb-0">
+                            <li><a class="link link-light link-light-75" href="#">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <i class="bi-envelope-open-fill"></i>
+                                        </div>
+
+                                        <div class="flex-grow-1 ms-2">
+                                            <span>Subscribe by email</span>
+                                        </div>
+                                    </div>
+                                </a></li>
+
+                            <li><a class="link link-light link-light-75" href="#">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <i class="bi-facebook"></i>
+                                        </div>
+
+                                        <div class="flex-grow-1 ms-2">
+                                            <span>Facebook</span>
+                                        </div>
+                                    </div>
+                                </a></li>
+
+                            <li><a class="link link-light link-light-75" href="#">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <i class="bi-linkedin"></i>
+                                        </div>
+
+                                        <div class="flex-grow-1 ms-2">
+                                            <span>Linkedin</span>
+                                        </div>
+                                    </div>
+                                </a></li>
+
+                            <li><a class="link link-light link-light-75" href="#">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <i class="bi-twitter"></i>
+                                        </div>
+
+                                        <div class="flex-grow-1 ms-2">
+                                            <span>Twitter</span>
+                                        </div>
+                                    </div>
+                                </a></li>
+
+                            <li><a class="link link-light link-light-75" href="#">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <i class="bi-slack"></i>
+                                        </div>
+
+                                        <div class="flex-grow-1 ms-2">
+                                            <span>Slack</span>
+                                        </div>
+                                    </div>
+                                </a></li>
+                        </ul>
+                        <!-- End List -->
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+            </div>
+
+            <div class="row align-items-md-center py-6">
+                <div class="col-md mb-3 mb-md-0">
+                    <!-- List -->
+                    <ul class="list-inline list-px-2 mb-0">
+                        <li class="list-inline-item"><a class="link link-light link-light-75" href="#">Privacy and
+                                Policy</a></li>
+                        <li class="list-inline-item"><a class="link link-light link-light-75" href="#">Terms</a></li>
+                        <li class="list-inline-item"><a class="link link-light link-light-75" href="#">Status</a></li>
+                        <li class="list-inline-item">
+                            <!-- Button Group -->
+                            <div class="btn-group">
+                                <a class="link link-light link-light-75" href="javascript:;" id="selectLanguage"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="d-flex align-items-center">
+                                        <img class="avatar avatar-xss avatar-circle me-2"
+                                            src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description"
+                                            width="16">
+                                        <span>English</span>
+                                    </span>
+                                </a>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item d-flex align-items-center active" href="#">
+                                        <img class="avatar avatar-xss avatar-circle me-2"
+                                            src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description"
+                                            width="16">
+                                        <span>English</span>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <img class="avatar avatar-xss avatar-circle me-2"
+                                            src="./assets/vendor/flag-icon-css/flags/1x1/de.svg" alt="Image description"
+                                            width="16">
+                                        <span>Deutsch</span>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <img class="avatar avatar-xss avatar-circle me-2"
+                                            src="./assets/vendor/flag-icon-css/flags/1x1/es.svg" alt="Image description"
+                                            width="16">
+                                        <span>Español</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End Button Group -->
+                        </li>
+                    </ul>
+                    <!-- End List -->
+                </div>
+                <!-- End Col -->
+
+                <div class="col-md-auto">
+                    <p class="fs-5 text-white-70 mb-0">© Unify. 2021</p>
+                </div>
+                <!-- End Col -->
+            </div>
+            <!-- End Row -->
+        </div>
+    </footer>
+    <!-- ========== END FOOTER ========== -->
+
+    <!-- ========== SECONDARY CONTENTS ========== -->
+    <!-- Go To -->
+    <a class="js-go-to go-to position-fixed animated hs-go-to-prevent-event fadeOutDown" href="javascript:;"
+        style="right: 2rem; bottom: 2rem;" data-hs-go-to-options="{
+         &quot;offsetTop&quot;: 700,
+         &quot;position&quot;: {
+           &quot;init&quot;: {
+             &quot;right&quot;: &quot;2rem&quot;
+           },
+           &quot;show&quot;: {
+             &quot;bottom&quot;: &quot;2rem&quot;
+           },
+           &quot;hide&quot;: {
+             &quot;bottom&quot;: &quot;-2rem&quot;
+           }
+         }
+       }">
+        <i class="bi-chevron-up"></i>
+    </a>
+    <!-- ========== END SECONDARY CONTENTS ========== -->
+
+    <!-- JS Implementing Plugins -->
+    <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+
+    <!-- JS Unify -->
+    <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+
+    <!-- JS Plugins Init. -->
+    <script>
+        (function () {
+            // INITIALIZATION OF NAVBAR
+            // =======================================================
+            new HSHeader('#header').init()
+
+
+            // INITIALIZATION OF MEGA MENU
+            // =======================================================
+            const megaMenu = new HSMegaMenu('.js-mega-menu', {
+                desktop: {
+                    position: 'left'
+                }
+            })
+
+
+            // INITIALIZATION OF GO TO
+            // =======================================================
+            new HSGoTo('.js-go-to')
+
+
+            // INITIALIZATION OF SWIPER
+            // =======================================================
+            var swiper = new Swiper('.js-swiper-clients', {
+                slidesPerView: 2,
+                breakpoints: {
+                    380: {
+                        slidesPerView: 3,
+                        spaceBetween: 15,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        spaceBetween: 15,
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                        spaceBetween: 15,
+                    },
+                },
+            });
+        })()
+    </script>
+
+</body>
+
+{% endblock %}
+
 </html>
