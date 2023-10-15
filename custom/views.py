@@ -9,7 +9,6 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import mixins
 
-print(dir(mixins))
 
 # Create your views here.
 
