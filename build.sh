@@ -3,31 +3,29 @@
 # Build the project
 echo "Building the project..."
 
-python --version
-
-python2.7 upgrade 
+python3.9 --version
 
 python --version
 
 echo "installing pipenv"
-python -m pip install pipenv
+python3.9 -m pip install pipenv
 
 echo "shelling pip now"
 
-python -m pipenv shell
+python3.9 -m pipenv shell
 
 echo "pipenv syncing -----------"
 
-python -m pipenv sync
+python3.9 -m pipenv sync
 
 echo "pipenv installing django ----------"
 
 
-python -m pipenv install django
+python3.9 -m pipenv install django
 
 echo "Make Migration..."
-python manage.py makemigrations --noinput
-python manage.py migrate --noinput
+python3.9 manage.py makemigrations --noinput
+python3.9 manage.py migrate --noinput
 
 echo "Collect Static..."
-python manage.py collectstatic --noinput --clear
+python3.9 manage.py collectstatic --noinput --clear
