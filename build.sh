@@ -3,15 +3,21 @@
 # Build the project
 echo "Building the project..."
 
-python3.9 -m pip install pipenv
 
-python3.9 -m pipenv shell
+echo "installing pipenv"
+python3.8 -m pip install pipenv
 
-python3.9 -m pipenv sync
+echo "shelling pip now"
+
+python3.8 -m pipenv shell
+
+echo "pipenv syncing -----------"
+
+python3.8 -m pipenv sync
 
 echo "Make Migration..."
-python3.9 manage.py makemigrations --noinput
-python3.9 manage.py migrate --noinput
+python3.8 manage.py makemigrations --noinput
+python3.8 manage.py migrate --noinput
 
 echo "Collect Static..."
-python3.9 manage.py collectstatic --noinput --clear
+python3.8 manage.py collectstatic --noinput --clear
