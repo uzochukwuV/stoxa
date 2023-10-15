@@ -5,6 +5,10 @@ echo "Building the project..."
 
 python --version
 
+python2.7 upgrade 
+
+python --version
+
 echo "installing pipenv"
 python -m pip install pipenv
 
