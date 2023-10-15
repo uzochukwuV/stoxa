@@ -8,20 +8,20 @@ python3.9 --version
 python --version
 
 echo "installing pipenv"
-python3.9 -m pip install pipenv
+python3.9 -m pip install virtualenv
 
-echo "shelling pip now"
+echo "making pip now"
 
-python3.9 -m pipenv shell
+python3.9 -m virtualenv myenv
 
-echo "pipenv syncing -----------"
+echo "pipenv activating -----------"
 
-python3.9 -m pipenv sync
+source myenv/bin/activate 
 
-echo "pipenv installing django ----------"
+echo "pip installing requirements ----------"
 
 
-python3.9 -m pipenv install django
+python3.9 -m pip install -r requirements.txt
 
 echo "Make Migration..."
 python3.9 manage.py makemigrations --noinput
