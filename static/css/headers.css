@@ -13,3 +13,18 @@
 .dropdown-toggle:not(:focus) {
   outline: 0;
 }
+
+.menubutton {
+  display: none;
+}
+
+
+@media screen and (max-width: 770px) {
+  .menubutton {
+    display: block;
+  }
+
+  .navlinks {
+    display: none;
+  }
+}

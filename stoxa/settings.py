@@ -13,7 +13,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
+from dotenv import load_dotenv, find_dotenv
 
+load_dotenv(find_dotenv())
+
+print(os.environ['POSTGRES_PASSWORD'])
 
 
 
@@ -94,10 +98,11 @@ WSGI_APPLICATION = 'stoxa.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'stoxadb',
-       'USER': 'postgres',
-       'PASSWORD': "Hap2#",
-       'HOST': 'localhost',
+       'NAME': os.environ['POSTGRES_DATABASE'],
+       'USER': os.environ['POSTGRES_USER'], 
+       'PASSWORD': os.environ['POSTGRES_PASSWORD'],
+       'HOST': os.environ['POSTGRES_HOST'],
+       'URL': os.environ['POSTGRES_URL'],
        
        
    }

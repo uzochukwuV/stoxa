@@ -1,44 +1,142 @@
-{% extends 'myheader.html' %}
+{% extends 'authbase.html' %}
+
 {% load static %}
 
-{% block content %}
-   <main>
-    <div class="px-3 py-1  border-bottom">
-        <div class="container bg-primary">
-            <div class="d-flex justify-space-between">
-                <div class="d-flex gap-2 bg-light">
-                   <div class="container  balance_container  p-4" style="max-width: 400px; border-radius: 15px;">
-                    <div>
-                        <p class="text-secondary mb-0 ">Total balance </p>
-                    </div>
-                    <div>
-                        <p class="fs-1 text-black text-bold fw-medium">$ 7800</p>
-                    </div>
-                    <div>
-                        <p class="text-dark mt-1">Total Gain <i class="text-primary">9%</i></p>
-                    </div>
-                    <div class="line border border-primary w-25" ></div>
-                   </div>
-                   <div class="h-100 d-flex align-items-end">
-                        <div class="border btn p-3 mb-4" style="min-width: 250px;">
-                            <img src="{% static 'images/addmoney.svg' %}" style="transform: rotateX('59deg');"  alt="">
-                            Add money
-                        </div>
-                   </div>
+    <title>
+        {% block title %}
+            Account
+        {% endblock %}
+    </title>
+    
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+
+    <style>
+        .purple {
+    background: url("{% static 'images/bggreen.svg' %}");
+}
+.orange {
+    background: url("{% static 'images/svgorange.svg' %}");
+}
+
+.lightblue {
+    
+    background: url("{% static 'images/bgpurple.svg' %}");
+}
+    </style>
+
+{% endblock %}
+
+
+    
+</head>
+<body>
+    {% block content %}
+    <section class="topview paddingall">
+
+        <section>
+            
+            <h1 style="margin: 0;">Stoxafx</h1>
+        </section>
+        <section>
+            <div class="menubar"><box-icon name='menu-alt-right'></box-icon></div>
+        </section>
+    </section>
+    <section class="bottomview">
+        <section class="leftview paddingall">
+            <section></section>
+            <section>
+                <div class="link_item active">
+                    <a href="{% url 'account' %}"  rel="noopener noreferrer">
+                        <span>Dashboard</span>
+                        <box-icon name='home' type='solid' color=" var(--text-color) " ></box-icon>
+                    </a>
                 </div>
-                <div class="btc" >
-                    <img src="{% static 'images/bitcoin.svg' %}" style="transform: rotateX('59deg');" height="200px" width="300px" alt="">
+                <div class="link_item">
+                    <a href="#"  rel="noopener noreferrer">
+                        <span>Your Subscription</span>
+                        <box-icon name='paper-plane' color=" var(--text-color) "></box-icon>
+                    </a>
+                </div>
+                <div class="link_item">
+                    <a href="#"  rel="noopener noreferrer">
+                        <span>Deposit</span>
+                        <box-icon type='solid' name='wallet' color=" var(--text-color) "></box-icon>
+                    </a>
+                </div>
+                <div class="link_item">
+                    <a href="#"  rel="noopener noreferrer">
+                        <span>Withdraw</span>
+                        <box-icon name='money-withdraw' color=" var(--text-color) "></box-icon>
+                    </a>
+                </div>
+                <div class="link_item">
+                    <a href="{% url 'addbank' %}"  rel="noopener noreferrer">
+                        <span>Add bank account</span>
+                        <box-icon name='bank' type='solid' color=" var(--text-color) "></box-icon>
+                    </a>
+                </div>
+                <div class="link_item">
+                    <a href="#"  rel="noopener noreferrer">
+                        <span>Setting</span>
+                        <box-icon name='cog' type='solid' color=" var(--text-color) "></box-icon>
+                    </a>
+                </div>
+            </section>
+        </section>
+        <section class="rightview paddingall">
+            <div><h3>Dashboard</h3></div>
+            <div class="stats">
+                <div class="purple paddingrwd">
+                    <div>
+                        <img src="" width="25px" height="25px" alt="" srcset="">
+                    </div>
+                    <div class="statsprice">
+                        <p>Stock Total</p>
+                        <h3>$15000.00</h3>
+                    </div>
+                    <div>
+                        <p>Increased by 60%</p>
+                    </div>
+                </div>
+                <div class="lightblue paddingrwd">
+                    <div>
+                        <img src="" width="25px" height="25px" alt="" srcset="">
+                    </div>
+                    <div class="statsprice">
+                        <p>Stock Total</p>
+                        <h3>$15000.00</h3>
+                    </div>
+                    <div>
+                        <p>Increased by 60%</p>
+                    </div>
+                </div>
+                <div class="orange paddingrwd">
+                    <div>
+                        <img src="" width="25px" height="25px" alt="" srcset="">
+                    </div>
+                    <div class="statsprice">
+                        <p>Stock Total</p>
+                        <h3>$15000.00</h3>
+                    </div>
+                    <div>
+                        <p>Increased by 60%</p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-
-        {% include 'plans.html' %}
-    </div>
-    <!-- Plans -->
-    
-  
-   </main>
-
+            
+            <div class="transactions paddingall" style="margin-top: 10px;">
+                <div class="">
+                    Transactions
+                </div>
+                <div class="pt-5">
+                    you have no transactions now
+                </div>
+            </div>
+        </section>
+    </section>
     {% endblock %}
 
+</body>
+</html>

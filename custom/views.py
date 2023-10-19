@@ -93,28 +93,32 @@ class AccountPageView(View, mixins.LoginRequiredMixin):
         return render(request, 'account/account_page.html')
 
     def post(self, request):
-        pass
+        return render(request)
 
 
 class ProfileView(View, mixins.LoginRequiredMixin):
     def get(self, request):
-        pass
+        return render(request)
 
     def post(self, request):
-        pass
+        return render(request)
 
 
 
 class DepositView(View, mixins.LoginRequiredMixin):
     def get(self, request):
-        pass
+        return render(request)
 
     def post(self, request):
-        pass
+        return render(request)
 
-class WithdrawView(View, mixins.LoginRequiredMixin):
+class WithdrawPageView(View, mixins.LoginRequiredMixin):
     def get(self, request):
-        pass
+        return render(request, 'withdraw/withdraw.html')
 
     def post(self, request):
         pass
+
+class AddBankPageView(View):
+    def get(self , request):
+        return render(request, 'addbank/addbank.html')

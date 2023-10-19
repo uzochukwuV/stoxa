@@ -1,0 +1,225 @@
+{% extends 'authbase.html' %}
+
+{% load static %}
+
+<title>
+    {% block title %}
+    add a bank
+    {% endblock %}
+</title>
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
+
+<style>
+    .rightviewform {
+        padding: 50px 5px;
+    }
+    .form_option {
+        display: flex;
+        padding: 5px 0;
+        justify-content: space-around;
+        gap: 10px;
+        padding: 0 5%;
+    }
+    .form_option button {
+        background-color: var(--text-color);
+        font-size: 120%;
+        height: 50px;
+        
+        color: white;
+        width: 180px;
+
+    }
+    .form_option button:hover, .form_option button:active {
+        border: 2px solid var(--text-color);
+    }
+
+    .input_group input {
+        border : 1px solid rgb(181, 179, 179);
+        padding: 15px 20px;
+        width: 100%;
+        margin: 0 auto;
+        font-size: 16;
+    }
+    .input_group {
+        margin: 20px 0;
+    }
+    .form_list {
+        padding: 30px 10%;
+    }
+    .form_list .active {
+        display: block !important;
+    }
+
+    @media screen and (max-width: 600px) {
+        .form_option button {
+            font-size: 80%;
+            width: 100px;
+            padding: 0;
+        }
+    }
+    
+</style>
+
+
+
+{% endblock %}
+
+
+
+</head>
+
+<body>
+    {% block content %}
+    <section class="topview paddingall">
+
+        <section>
+
+            <h1 style="margin: 0;">Stoxafx</h1>
+        </section>
+        <section>
+            <button class=" border-0 d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive"><box-icon name='menu-alt-right' type='solid' color=" var(--text-color) "></box-icon></button>
+
+            <div class=" d-none d-lg-block">
+                profile
+            </div>
+
+            
+        </section>
+    </section>
+    <section class="bottomview">
+        <section class="leftview paddingall">
+            <section></section>
+            <section>
+                <div class="link_item active">
+                    <a href="{% url 'account' %}"  rel="noopener noreferrer">
+                        <span>Dashboard</span>
+                        <box-icon name='home' type='solid' color=" var(--text-color) " ></box-icon>
+                    </a>
+                </div>
+                <div class="link_item">
+                    <a href="#" rel="noopener noreferrer">
+                        <span>Your Subscription</span>
+                        <box-icon name='paper-plane' color=" var(--text-color) "></box-icon>
+                    </a>
+                </div>
+                <div class="link_item">
+                    <a href="#" rel="noopener noreferrer">
+                        <span>Deposit</span>
+                        <box-icon type='solid' name='wallet' color=" var(--text-color) "></box-icon>
+                    </a>
+                </div>
+                <div class="link_item">
+                    <a href="#" rel="noopener noreferrer">
+                        <span>Withdraw</span>
+                        <box-icon name='money-withdraw' color=" var(--text-color) "></box-icon>
+                    </a>
+                </div>
+                <div class="link_item">
+                    <a href="#" rel="noopener noreferrer">
+                        <span>Add bank account</span>
+                        <box-icon name='bank' type='solid' color=" var(--text-color) "></box-icon>
+                    </a>
+                </div>
+                <div class="link_item">
+                    <a href="#" rel="noopener noreferrer">
+                        <span>Setting</span>
+                        <box-icon name='cog' type='solid' color=" var(--text-color) "></box-icon>
+                    </a>
+                </div>
+            </section>
+        </section>
+        <section class="rightview paddingall">
+            <div class="rightviewform">
+                <div class="form_option">
+                    <div>
+                        <button class="btn " id="cardbtn">Card</button>
+                    </div>
+                    <div>
+                        <button class="btn" id="paysafebtn"> PaySafeCard</button>
+                    </div>
+                    <div>
+                        <button class="btn" id="cryptobtn">CryptoCurrency</button>
+                    </div>
+                </div>
+                <div class="form_list">
+                    <div id="crypto" class="d-none active">
+                        <form action="" method="post">
+                            <div class="input_group">
+                                <input type="text" class="" placeholder="Your Btc address">
+                            </div>
+                            <div class="input_group">
+                                <input type="submit" value="submit">
+                            </div>
+                        </form>
+                    </div>
+                    <div id="card" class="d-none">
+                        <p>This payment method is not available at the moment</p>
+                    </div>
+                    <div id="paysafecard" class="d-none">
+                        <p>This payment method is not available at the moment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <script>
+        var paysafebtn = document.getElementById('paysafebtn');
+        var cryptobtn = document.getElementById('cryptobtn');
+        var cardbtn = document.getElementById('cardbtn');
+
+
+        var card = document.getElementById('card');
+        var cryptodiv = document.getElementById('crypto');
+        var paysafe = document.getElementById('paysafecard')
+
+
+        cardbtn.addEventListener('click', ()=>{
+            
+
+            if (card.classList.contains('active')){
+                console.log('it contains ctive')
+
+            }else {
+                card.classList.add('active')
+                paysafe.classList.contains('active')=== true ? paysafe.classList.remove('active'): ''
+                cryptodiv.classList.contains('active') === true ? cryptodiv.classList.remove('active') : ''
+            }
+        })
+
+        cryptobtn.addEventListener('click', ()=>{
+            console.log(cryptodiv);
+
+            if (cryptodiv.classList.contains('active')){
+                console.log('it contains ctive')
+
+            }else {
+                cryptodiv.classList.add('active')
+                paysafe.classList.contains('active')=== true ? paysafe.classList.remove('active'): ''
+                card.classList.contains('active') === true ? card.classList.remove('active') : ''
+            }
+        })
+
+        paysafebtn.addEventListener('click', ()=>{
+            console.log(paysafebtn);
+
+            if (paysafe.classList.contains('active')){
+                console.log('it contains ctive')
+
+            }else {
+                paysafe.classList.add('active')
+                cryptodiv.classList.contains('active')=== true ? cryptodiv.classList.remove('active'): ''
+                card.classList.contains('active') === true ? card.classList.remove('active') : ''
+            }
+        })
+
+
+    </script>
+    {% endblock %}
+
+</body>
+
+</html>

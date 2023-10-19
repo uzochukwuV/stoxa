@@ -1,0 +1,48 @@
+{%  load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+   
+    
+    {% block css %}
+   
+
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="{% static 'css/vendor.min.css' %}">
+
+    <!-- CSS Unify Template -->
+    <link rel="stylesheet" href="{% static 'css/theme.min.css' %}">
+    <style class="fslightbox-styles">
+       
+    </style>
+    <script type="module" src="chrome-extension://jdkknkkbebbapilgoeccciglkfbmbnfm/hook.js"></script>
+ 
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    
+    {% block content %}
+
+        {% endblock %}
+  
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+        
+  </body>
+</html>

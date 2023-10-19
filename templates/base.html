@@ -28,8 +28,7 @@
     <style class="fslightbox-styles">
        
     </style>
-    <script type="module" src="chrome-extension://jdkknkkbebbapilgoeccciglkfbmbnfm/hook.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+   
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -63,7 +62,7 @@
             <!-- End Toggler -->
 
             <!-- Collapse -->
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse" id="navbarNavDropdownMine">
                 <div class="navbar-absolute-top-scroller">
                     <ul class="navbar-nav nav-pills">
                         <!-- Landings -->
@@ -264,11 +263,74 @@
     {% block content %}
 
         {% endblock %}
-  
-   
+        <script type="module" src="chrome-extension://jdkknkkbebbapilgoeccciglkfbmbnfm/hook.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+        <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js" crossorigin="anonymous"></script>
         <script src="{% static 'assets/js/vendor.min.js' %}"></script>
 
     <!-- JS Unify -->
     <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+    <script>
+        (function() {
+          // INITIALIZATION OF NAVBAR
+          // =======================================================
+          new HSHeader('#header').init()
+    
+    
+          // INITIALIZATION OF MEGA MENU
+          // =======================================================
+          const megaMenu = new HSMegaMenu('.js-mega-menu', {
+            desktop: {
+              position: 'left'
+            }
+          })
+    
+    
+          // INITIALIZATION OF GO TO
+          // =======================================================
+          new HSGoTo('.js-go-to')
+    
+    
+          // INITIALIZATION OF SWIPER
+          // =======================================================
+          var swiper = new Swiper('.js-swiper-clients',{
+            slidesPerView: 2,
+            breakpoints: {
+              380: {
+                slidesPerView: 3,
+                spaceBetween: 15,
+              },
+              768: {
+                slidesPerView: 4,
+                spaceBetween: 15,
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 15,
+              },
+            },
+          });
+        })()
+
+        var x = document.getElementsByClassName('navbar-toggler');
+        console.log(x)
+        x[0].addEventListener('click', (e)=>{
+            var y = document.getElementsByClassName('navbar-collapse');
+            console.log(e.target)
+            setTimeout( ()=> {
+                console.log(y[0].classList.contains('show'))
+                if (y[0].classList.contains('show')){
+                    
+                    y[0].classList.remove('show')
+                }else {
+                    y[0].classList.add('show')
+                }
+            },500)
+            
+
+            
+        })
+
+      </script>
   </body>
 </html>

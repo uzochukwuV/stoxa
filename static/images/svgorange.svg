@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="300" height="250" preserveAspectRatio="none" viewBox="0 0 300 250"><g mask="url(&quot;#SvgjsMask1072&quot;)" fill="none"><rect width="300" height="250" x="0" y="0" fill="rgba(229, 132, 46, 1)"></rect><path d="M140.98 232.75 a46.37 46.37 0 1 0 92.74 0 a46.37 46.37 0 1 0 -92.74 0z" fill="rgba(233, 198, 7, 0.4)" class="triangle-float1"></path><path d="M25.54 247.47 a58.96 58.96 0 1 0 117.92 0 a58.96 58.96 0 1 0 -117.92 0z" fill="rgba(233, 198, 7, 0.4)" class="triangle-float2"></path><path d="M165.7 221.66 a73.51 73.51 0 1 0 147.02 0 a73.51 73.51 0 1 0 -147.02 0z" fill="rgba(233, 198, 7, 0.4)" class="triangle-float2"></path><path d="M34.83 127.69 a50.95 50.95 0 1 0 101.9 0 a50.95 50.95 0 1 0 -101.9 0z" fill="rgba(233, 198, 7, 0.4)" class="triangle-float3"></path></g><defs><mask id="SvgjsMask1072"><rect width="300" height="250" fill="#ffffff"></rect></mask><style>
+                @keyframes float1 {
+                    0%{transform: translate(0, 0)}
+                    50%{transform: translate(-10px, 0)}
+                    100%{transform: translate(0, 0)}
+                }
+
+                .triangle-float1 {
+                    animation: float1 5s infinite;
+                }
+
+                @keyframes float2 {
+                    0%{transform: translate(0, 0)}
+                    50%{transform: translate(-5px, -5px)}
+                    100%{transform: translate(0, 0)}
+                }
+
+                .triangle-float2 {
+                    animation: float2 4s infinite;
+                }
+
+                @keyframes float3 {
+                    0%{transform: translate(0, 0)}
+                    50%{transform: translate(0, -10px)}
+                    100%{transform: translate(0, 0)}
+                }
+
+                .triangle-float3 {
+                    animation: float3 6s infinite;
+                }
+            </style></defs></svg>
