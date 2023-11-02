@@ -12,9 +12,12 @@
   <link rel="stylesheet" href="{% static 'css/account.css' %}">
   <link rel="stylesheet" href="{% static 'css/plans.css' %}">
   <style>
+    html{
+      font-size: 80%;
+    }
     .d-flex {
       display: flex;
-      gap: 1em;
+      gap: 2.5em;
       justify-content: space-between;
       align-items: center;
     }
@@ -30,8 +33,45 @@
       padding: 10px 2em;
 
     }
+    .topbar {
+      display: none;
+      height: 50px;
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+    }
 
+    .topbar #btn {
+     
+      border-radius: 3px;
+    }
     @media screen and (max-width: 700px) {
+      .sidebar {
+        display: none;
+      }
+
+      .topbar {
+        display: flex !important;
+      }
+      .home-section {
+        left: 0 !important;
+        width: 100% !important;
+      }
+      .open {
+        width: 25px;
+        display: block !important;
+        
+        animation: slideinO .6s ease;
+      }
+      @keyframes slideinO {
+        0% {
+          width: 30px;
+        }
+        100%{
+          width: 250px;
+        }
+      }
+
 
       .home-section .top,
       .PortFolio,
@@ -92,12 +132,12 @@
       border-radius: 5px;
       border: 1px solid rgb(172, 172, 172);
       width: 300px;
-      font-size: 18px;
+      font-size: 120%;
       padding: 0 20px;
     }
 
     .PortFolio p {
-      font-size: 18px;
+      font-size: 120%;
       font-weight: 700;
       line-height: normal;
       color: rgb(60, 60, 60);
@@ -131,28 +171,28 @@
     }
 
     .protext h2 {
-      font-size: 18px;
+      font-size: 120%;
       font-weight: 500;
     }
 
     .protext p {
-      font-size: 12px;
+      font-size: 60%;
       font-weight: 500;
     }
 
     .roitext p {
-      font-size: 14px;
+      font-size: 70%;
       font-weight: 500;
     }
 
     .roitext span {
-      font-size: 14px;
+      font-size: 70%;
       font-weight: 500;
       color: rgb(29, 101, 173);
     }
 
     .roitext button {
-      font-size: 12px;
+      font-size: 60%;
       font-weight: 500;
       background-color: black;
       padding: 5px 20px;
@@ -174,7 +214,7 @@
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus icon'></i>
       <div class="logo_name">StoxaFx</div>
-      <i class='bx bx-menu' id="btn"></i>
+      <i class='bx bx-menu btntop' id="btn"></i>
       <i class='bx bx-house' id="heart"></i>
     </div>
     <ul class="nav-list">
@@ -250,6 +290,11 @@
         </a>
       </li>
     </ul>
+  </div>
+  <div class="topbar d-flex justify-space-between bg-dark d-none">
+    <div> <i class='bx bxl-c-plus-plus icon'></i>
+      <div class="logo_name">StoxaFx</div></div>
+    <div><i class='bx bx-menu btntop' id="btn"></i></div>
   </div>
   <div class="home-section trader-sc">
     <div class="container">
@@ -392,13 +437,13 @@
   </div>
   <script>
     let sidebar = document.querySelector(".sidebar");
-    let closeBtn = document.querySelector("#btn");
+    let closeBtn = document.querySelectorAll(".btntop");
     let searchBtn = document.querySelector(".bx-search");
 
-    closeBtn.addEventListener("click", () => {
+    closeBtn.forEach(e=> e.addEventListener("click", () => {
       sidebar.classList.toggle("open");
       menuBtnChange();//calling the function(optional)
-    });
+    }))
 
     searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
       sidebar.classList.toggle("open");
