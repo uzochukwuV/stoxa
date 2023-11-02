@@ -8,6 +8,8 @@ import json
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import mixins
+from .models import *
+from django.contrib.auth.hashers import make_password
 
 
 # Create your views here.
@@ -21,26 +23,31 @@ class HomeView(View):
 
 class LoginView(View):
     def get(self, request):
+        print('login get request')
         return render(request, 'login/login.html')
     
     def post(self, request):
-        print('a hit')
+        print('login post request')
+        
         email = request.POST['email']
         password = request.POST['password']
 
-        print(email + password)
-        user = authenticate(password=password,email=email)
-        print(user)
+        
+        user = authenticate(email=email, password=password)
+
+        print(user.get_username())
         if user is not None:
-            login(user)
-            print(user)
-            return redirect(reverse('home'))
+            login(request, user)
+            return redirect(reverse('account', args=['auth']))
+        
         return render(request, 'login/login.html', {'email':email, 'password':password})
 
 
         
 
-
+def Logout(request):
+    logout(request)
+    return redirect(reverse('home'))
 
 class RegisterValidateEmailView(View):
     def post(self, request):
@@ -48,7 +55,7 @@ class RegisterValidateEmailView(View):
         
         email = data['email'] or ''
 
-        if User.objects.filter(email=email).exists():
+        if PrimaryUser.objects.filter(email=email).exists():
             return JsonResponse({'error':'email already exits'})
         
         return JsonResponse({'message':'not taken'})
@@ -59,7 +66,7 @@ class RegisterValidateUsernameView(View):
         
         username = data['username'] or ''
 
-        if User.objects.filter(username=username).exists():
+        if PrimaryUser.objects.filter(username=username).exists():
             return JsonResponse({'error':'username already exits'})
         
         return JsonResponse({'message':'ok that\'s a great choice'})
@@ -73,15 +80,17 @@ class RegisterView(View):
         email = request.POST['email']
         password = request.POST['password']
 
-        
+        print(password)
 
-        user = authenticate(username=username, password=password,email=email)
+        user = authenticate(password=password,email=email)
+        print(user)
 
         if user is not None:
             return render(request, 'auth/signup.html', {'message':'user already exist'})
         else:
-            print('user is not alvabkle')
-            new_user =User.objects.create(username=username, password=password,email=email)
+            print('user is none')
+            
+            new_user =PrimaryUser.objects.create(email=email,username=username, password=make_password(password))
             new_user.save()
             return redirect(reverse('login'))
         
@@ -89,15 +98,19 @@ class RegisterView(View):
 
 
 class AccountPageView(View, mixins.LoginRequiredMixin):
-    def get(self, request):
-        return render(request, 'account/account_page.html')
+    def get(self, request, auth):
+        login = False
+        if auth == 'auth':
+            login = True
+
+        return render(request, 'account/account_page.html', {'login': login})
 
     def post(self, request):
         return render(request)
 
 
 class ProfileView(View, mixins.LoginRequiredMixin):
-    def get(self, request):
+    def get(self, request, auth):
         return render(request)
 
     def post(self, request):
@@ -121,4 +134,22 @@ class WithdrawPageView(View, mixins.LoginRequiredMixin):
 
 class AddBankPageView(View):
     def get(self , request):
-        return render(request, 'addbank/addbank.html')
+        return render(request, 'deposit/deposit.html')
+    
+
+class Setting(View):
+    def get(self, request):
+        return render(request, 'setting/setting.html')
+    
+
+
+class TopTraderView(View):
+    def get(self, request):
+        return render(request, 'trader/trader.html')
+    
+
+
+class SubscriptionView(View):
+    def get(self, request):
+        return render(request, 'sub/sub.html')
+    

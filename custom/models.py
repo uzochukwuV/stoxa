@@ -12,7 +12,7 @@ class PrimaryUser(AbstractUser):
     email = models.EmailField(unique=True, max_length=225)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS =['password', 'username']
+    REQUIRED_FIELDS =['username']
     
 
     

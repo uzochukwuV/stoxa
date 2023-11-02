@@ -26,7 +26,7 @@
   height: 100%;
   width: 78px;
   background: #11101D;
-  padding: 6px 3px;
+  padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
 }
@@ -304,37 +304,18 @@
   justify-content: space-between;
 }
 
-.activity {
-  padding: 3em 0;
-  margin-right: calc(-.7 * var(--bs-gutter-x));
-}
-
-.activityhead{
-  height: 40px;
-  background-color: #11101D;
-  color: #fff;
-  font-size: 14px;
-  border-radius: 5px !important ;
-  
-}
-.activityhead tr th {
-  
-  color: #fff;
-}
-
 table {
   overflow-x: hidden;
   overflow-clip-margin: 12px;
   border-spacing: 2px;
-  border: 0;
   
 }
 
 .traderActivity td {
-  
-  font-size: 14px;
+  background-color: #11101D;
+  color: #fff;
+  font-size: 12px;
   min-width: 130px;
-  
   
   
 }
@@ -343,9 +324,6 @@ table {
   display: flex;
   align-items: center;
   gap: 2px;
-  height: 35px;
-  min-width: 120px;
-  
 }
 
 .activity {
@@ -364,13 +342,6 @@ table {
   color: #11101D !important;
   background-color: white !important;
 }
-
-.fs-1 {
-  font-size: 300% !important;
-}
-.card-title {
-  color: #d2d2d2 !important;
-}
 	 </style>
    </head>
 <body>
@@ -385,15 +356,15 @@ table {
       <li>
           
       </li>
-      <li class="active">
-        <a href="{% url 'account' 'auth' %}">
+      <li >
+        <a href="{% url 'account' 'auth' %}" >
           <i class='bx bx-grid-alt'></i>
           <span class="links_name" id="dashboard">Dashboard</span>
         </a>
          <span class="tooltip">Dashboard</span>
       </li>
       <li>
-       <a href="{% url 'copy' %}">
+       <a href="#">
          <i class='bx bx-user' ></i>
          <span class="links_name" id="trader"> Top traders</span>
        </a>
@@ -413,8 +384,8 @@ table {
        </a>
        <span class="tooltip">Withdraw</span>
      </li>
-     <li>
-       <a href="#">
+     <li class="active">
+       <a href="{% url 'account' 'auth' %}" >
          <i class='bx bx-folder' ></i>
          <span class="links_name" id="deposit">Deposit</span>
        </a>
@@ -434,7 +405,7 @@ table {
        </a>
        <span class="tooltip">Giveaways</span>
      </li>
-     <li>
+     <li class="">
        <a href="{% url 'setting' %}">
          <i class='bx bx-cog' ></i>
          <span class="links_name" id="setting">Setting</span>
@@ -455,126 +426,16 @@ table {
      </li>
     </ul>
   </div>
-  <section class="home-section">
-      <div class="d-flex justify-space-between p-3">
-        <div class="text">Dashboard</div>
-        <div class="text">{{request.user.username}}</div>
-      </div>
-	  <div>
-		<div class="row">
-			<div class="row">
-				<div class="col-sm-4">
-				  <div class="card">
-					<div class="card-body">
-					  <h5 class="card-title text-white">Balance</h5>
-					  <p class="card-text fs-1 text-white mb-5">$ 1000.00</p>
-           <div class="d-flex justify-space-between" style="align-items: center;">
-            <p class="card-text text-primary d-flex gap-2 fs-3" style="align-items: center;"> 2.30% <box-icon name='up-arrow' type='solid' color='#0ABF53' ></box-icon></p>
-					  <button class="btn border-0"><box-icon name='plus' flip='horizontal' color='#fffefe' ></box-icon></button>
-           </div>
+  <div class="home-section">
+    <div class="container">
+        <div class="col form-outline mb-4">
+            <label class="form-label" for="form2Example17">Generate Btc Address</label>
+            <input type="text" id="form2Example17" class="form-control"  name="username"/>
+            <input type="submit" class="btn btn-lg" />
             
-					</div>
-				  </div>
-				</div>
-				<div class="col-sm-4">
-				  <div class="card">
-					<div class="card-body">
-					  <h5 class="card-title text-white">Subscriptions</h5>
-					  <p class="card-text fs-1 text-white mb-5">$ 2340.00</p>
-            <div class="d-flex justify-space-between" style="align-items: center;">
-              <p class="card-text text-primary d-flex gap-2 fs-3" style="align-items: center;"> 2.30% <box-icon name='up-arrow' type='solid' color='#0ABF53' ></box-icon></p>
-              <button class="btn border-0"><box-icon name='plus' flip='horizontal' color='#fffefe' ></box-icon></button>
-             </div>
-					</div>
-				  </div>
-				</div>
-        <div class="col-sm-4">
-				  <div class="card">
-					<div class="card-body">
-					  <h5 class="card-title text-white">Copy Trading</h5>
-					  <p class="card-text fs-1 text-white mb-5">$ 500.00</p>
-            <div class="d-flex justify-space-between" style="align-items: center;">
-              <p class="card-text text-primary d-flex gap-2 fs-3" style="align-items: center;"> 2.30% <box-icon name='up-arrow' type='solid' color='#0ABF53' ></box-icon></p>
-              <button class="btn border-0"><box-icon name='plus' flip='horizontal' color='#fffefe' ></box-icon></button>
-             </div>
-					</div>
-				  </div>
-				</div>
-			  </div>
-	  </div>
-
-    
-    <div class=" activity">
-      <table class="table">
-        <thead class="activityhead ">
-          <tr>
-            <th scope="col">Trader</th>
-            <th scope="col" class="col-6 ">Activity</th>
-            <th scope="col">Trade</th>
-            <th scope="col">Total ROI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr aria-colcount="top tarders" class="traderActivity p-5">
-            <td scope="row">
-              <div>
-                Mark Clean
-              <box-icon name='badge-check' type='solid' color='#002cff' ></box-icon>
-              </div>
-            </td>
-            <td><div>2mins</div></td>
-            <td><div>$40,000</div></td>
-            <td><div>7.90%</div></td>
-          </tr>
-          <tr aria-colcount="top tarders" class="traderActivity p-3">
-            <td scope="row">
-              <div>
-                Mark Clean
-              <box-icon name='badge-check' type='solid' color='#002cff' ></box-icon>
-              </div>
-            </td>
-            <td><div>2mins</div></td>
-            <td><div>$40,000</div></td>
-            <td><div>7.90%</div></td>
-          </tr>
-          <tr aria-colcount="top tarders" class="traderActivity  border-rounded">
-            <td scope="row">
-              <div>
-                Mark Clean
-              <box-icon name='badge-check' type='solid' color='#002cff' ></box-icon>
-              </div>
-            </td>
-            <td><div>2mins</div></td>
-            <td><div>$40,000</div></td>
-            <td><div>7.90%</div></td>
-          </tr>
-          <tr aria-colcount="top tarders" class="traderActivity ">
-            <td scope="row">
-              <div>
-                Mark Clean
-              <box-icon name='badge-check' type='solid' color='#002cff' ></box-icon>
-              </div>
-            </td>
-            <td><div>2mins</div></td>
-            <td><div>$40,000</div></td>
-            <td><div>7.90%</div></td>
-          </tr>
-          <tr aria-colcount="top tarders" class="traderActivity ">
-            <td scope="row">
-              <div>
-                Mark Clean
-              <box-icon name='badge-check' type='solid' color='#002cff' ></box-icon>
-              </div>
-            </td>
-            <td><div>2mins</div></td>
-            <td><div>$40,000</div></td>
-            <td><div>7.90%</div></td>
-          </tr>
-          </tbody>
-        </table>
+          </div>
     </div>
-    
-  </section>
+  </div>
   <script>
   let sidebar = document.querySelector(".sidebar");
   let closeBtn = document.querySelector("#btn");

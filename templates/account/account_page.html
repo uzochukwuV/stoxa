@@ -10,21 +10,8 @@
     
     {% block css %}
     <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/account.css' %}">
-
-    <style>
-        .purple {
-    background: url("{% static 'images/bggreen.svg' %}");
-}
-.orange {
-    background: url("{% static 'images/svgorange.svg' %}");
-}
-
-.lightblue {
-    
-    background: url("{% static 'images/bgpurple.svg' %}");
-}
-    </style>
 
 {% endblock %}
 
@@ -32,110 +19,12 @@
     
 </head>
 <body>
-    {% block content %}
-    <section class="topview paddingall">
+    
 
-        <section>
-            
-            <h1 style="margin: 0;">Stoxafx</h1>
-        </section>
-        <section>
-            <div class="menubar"><box-icon name='menu-alt-right'></box-icon></div>
-        </section>
-    </section>
-    <section class="bottomview">
-        <section class="leftview paddingall">
-            <section></section>
-            <section>
-                <div class="link_item active">
-                    <a href="{% url 'account' %}"  rel="noopener noreferrer">
-                        <span>Dashboard</span>
-                        <box-icon name='home' type='solid' color=" var(--text-color) " ></box-icon>
-                    </a>
-                </div>
-                <div class="link_item">
-                    <a href="#"  rel="noopener noreferrer">
-                        <span>Your Subscription</span>
-                        <box-icon name='paper-plane' color=" var(--text-color) "></box-icon>
-                    </a>
-                </div>
-                <div class="link_item">
-                    <a href="#"  rel="noopener noreferrer">
-                        <span>Deposit</span>
-                        <box-icon type='solid' name='wallet' color=" var(--text-color) "></box-icon>
-                    </a>
-                </div>
-                <div class="link_item">
-                    <a href="#"  rel="noopener noreferrer">
-                        <span>Withdraw</span>
-                        <box-icon name='money-withdraw' color=" var(--text-color) "></box-icon>
-                    </a>
-                </div>
-                <div class="link_item">
-                    <a href="{% url 'addbank' %}"  rel="noopener noreferrer">
-                        <span>Add bank account</span>
-                        <box-icon name='bank' type='solid' color=" var(--text-color) "></box-icon>
-                    </a>
-                </div>
-                <div class="link_item">
-                    <a href="#"  rel="noopener noreferrer">
-                        <span>Setting</span>
-                        <box-icon name='cog' type='solid' color=" var(--text-color) "></box-icon>
-                    </a>
-                </div>
-            </section>
-        </section>
-        <section class="rightview paddingall">
-            <div><h3>Dashboard</h3></div>
-            <div class="stats">
-                <div class="purple paddingrwd">
-                    <div>
-                        <img src="" width="25px" height="25px" alt="" srcset="">
-                    </div>
-                    <div class="statsprice">
-                        <p>Stock Total</p>
-                        <h3>$15000.00</h3>
-                    </div>
-                    <div>
-                        <p>Increased by 60%</p>
-                    </div>
-                </div>
-                <div class="lightblue paddingrwd">
-                    <div>
-                        <img src="" width="25px" height="25px" alt="" srcset="">
-                    </div>
-                    <div class="statsprice">
-                        <p>Stock Total</p>
-                        <h3>$15000.00</h3>
-                    </div>
-                    <div>
-                        <p>Increased by 60%</p>
-                    </div>
-                </div>
-                <div class="orange paddingrwd">
-                    <div>
-                        <img src="" width="25px" height="25px" alt="" srcset="">
-                    </div>
-                    <div class="statsprice">
-                        <p>Stock Total</p>
-                        <h3>$15000.00</h3>
-                    </div>
-                    <div>
-                        <p>Increased by 60%</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="transactions paddingall" style="margin-top: 10px;">
-                <div class="">
-                    Transactions
-                </div>
-                <div class="pt-5">
-                    you have no transactions now
-                </div>
-            </div>
-        </section>
-    </section>
+    {% block content %}
+    
+    {% include "plans.html" %}
+
     {% endblock %}
 
 </body>

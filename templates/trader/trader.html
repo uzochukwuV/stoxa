@@ -1,0 +1,419 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{% static 'css/account.css' %}">
+  <link rel="stylesheet" href="{% static 'css/plans.css' %}">
+  <style>
+    .d-flex {
+      display: flex;
+      gap: 1em;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .flex-column {
+      flex-direction: column !important;
+      align-items: start !important;
+    }
+
+    .home-section .top {
+      position: relative;
+      min-height: 250px;
+      padding: 10px 2em;
+
+    }
+
+    @media screen and (max-width: 700px) {
+
+      .home-section .top,
+      .PortFolio,
+      .tradercards {
+        flex-direction: column;
+        padding: 10px 0.5em !important;
+
+      }
+
+      .home-section .top img {
+        width: 100%;
+        height: auto !important;
+      }
+
+      .PortFolio .list {
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+
+    .astretch {
+      align-items: stretch;
+    }
+
+    .flex-start {
+      justify-content: start !important;
+      gap: 0.5em;
+    }
+
+    .top .fs-1 {
+      font-size: 300%;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .top .fs-4 {
+      margin-top: -1.6em;
+      line-height: normal;
+
+    }
+
+    .top .btn-sm {
+      height: 45px;
+      min-width: 250px;
+      background-color: black;
+      color: white;
+      border: 0;
+      outline: 0;
+    }
+
+    .PortFolio {
+      padding: 2em;
+      min-height: 60px;
+    }
+
+    .PortFolio input {
+      height: 40px;
+      border-radius: 5px;
+      border: 1px solid rgb(172, 172, 172);
+      width: 300px;
+      font-size: 18px;
+      padding: 0 20px;
+    }
+
+    .PortFolio p {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: normal;
+      color: rgb(60, 60, 60);
+    }
+
+    .tradercards > div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .copycard {
+      padding: 1.5em;
+      height: 250px;
+      min-width: 280px;
+      flex: 1;
+
+      color: rgb(70, 70, 70);
+      display: flex;
+      gap: 1em;
+      flex-direction: column;
+      border-radius: 12px;
+      border: 1px solid gainsboro;
+
+    }
+
+    .trader-sc {
+      height: auto !important;
+      bottom: auto !important;
+      padding-bottom: 2em;
+    }
+
+    .protext h2 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .protext p {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .roitext p {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .roitext span {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgb(29, 101, 173);
+    }
+
+    .roitext button {
+      font-size: 12px;
+      font-weight: 500;
+      background-color: black;
+      padding: 5px 20px;
+      outline: 0;
+      border-radius: 8px;
+      border: 0;
+      color: white;
+    }
+
+    .tradercards {
+      padding: 2em;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus icon'></i>
+      <div class="logo_name">StoxaFx</div>
+      <i class='bx bx-menu' id="btn"></i>
+      <i class='bx bx-house' id="heart"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+
+      </li>
+      <li>
+        <a href="{% url 'account' 'auth' %}">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name" id="dashboard">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+      <li class="active">
+        <a href="#">
+          <i class='bx bx-user'></i>
+          <span class="links_name" id="trader"> Top traders</span>
+        </a>
+        <span class="tooltip">Top traders</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-chat'></i>
+          <span class="links_name" id="message">Messages</span>
+        </a>
+        <span class="tooltip">Messages</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-pie-chart-alt-2'></i>
+          <span class="links_name" id="withdraw">Widthdraw</span>
+        </a>
+        <span class="tooltip">Withdraw</span>
+      </li>
+      <li class="">
+        <a href="{% url 'account' 'auth' %}">
+          <i class='bx bx-folder'></i>
+          <span class="links_name" id="deposit">Deposit</span>
+        </a>
+        <span class="tooltip">Deposit</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cart-alt'></i>
+          <span class="links_name" id="subscriptions">Subscriptions</span>
+        </a>
+        <span class="tooltip">Subscriptions</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-heart'></i>
+          <span class="links_name" id="giveaway">Giveaways</span>
+        </a>
+        <span class="tooltip">Giveaways</span>
+      </li>
+      <li class="">
+        <a href="{% url 'setting' %}">
+          <i class='bx bx-cog'></i>
+          <span class="links_name" id="setting">Setting</span>
+        </a>
+        <span class="tooltip">Setting</span>
+      </li>
+      <li class="profile">
+        <div class="profile-details">
+          <img src="{% static 'images/andrea.jpg' %}" height="35px" alt="profileImg">
+          <div class="name_job">
+            <div class="name">Presh Lesli</div>
+            <div class="job">Pro Trader</div>
+          </div>
+        </div>
+        <a href="{% url 'logout' %}">
+          <i class='bx bx-log-out' id="log_out"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="home-section trader-sc">
+    <div class="container">
+      <section class="d-flex astretch top">
+        <div class=" d-flex flex-column">
+          <div class="fs-1">Copy Trading</div>
+          <div class="fs-4">Follow the world's top crypto traders and copy their trades with one click</div>
+          <div>
+            <button class="btn btn-sm">Become a Copy Trader</button>
+          </div>
+          <div>
+            <marquee behavior="" direction="ttb">Try StoxaFx Copy Trading and share $30,000 in reward</marquee>
+          </div>
+        </div>
+        <div>
+          <div>
+            <img src="{% static 'images/kia.jpg' %}" alt="" height="240px">
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="PortFolio d-flex">
+          <div class="d-flex list">
+            <p>PortFolio List</p>
+            <p>Favourites</p>
+          </div>
+          <div>
+            <input type="search" name="searchportfolio" id="" placeholder="Search by name">
+          </div>
+        </div>
+        <div class="tradercards">
+          <div>
+            <div class="copycard">
+              <div>
+                <div class="d-flex flex-start">
+                  <div><img src="" alt="a"></div>
+                  <div class="protext">
+                    <h2>Centadollar</h2>
+                    <p>64/366</p>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="roitext">
+                  <p>7D ROI</p>
+                  <span>67.87%</span>
+                </div>
+                <div>
+                  Chart
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="roitext">
+                  <p>7D PNL</p>
+                  <span>+98,000.33</span>
+                </div>
+                <div class="roitext">
+                  <p>7D MDD</p>
+                  <span>0.00%</span>
+                </div>
+              </div>
+              <div class="d-flex roitext">
+                <p>AUM <span>$40,000.98</span></p>
+                <button>Copy</button>
+              </div>
+            </div>
+            <div class="copycard">
+              <div>
+                <div class="d-flex flex-start">
+                  <div><img src="" alt="a"></div>
+                  <div class="protext">
+                    <h2>Centadollar</h2>
+                    <p>64/366</p>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="roitext">
+                  <p>7D ROI</p>
+                  <span>67.87%</span>
+                </div>
+                <div>
+                  Chart
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="roitext">
+                  <p>7D PNL</p>
+                  <span>+98,000.33</span>
+                </div>
+                <div class="roitext">
+                  <p>7D MDD</p>
+                  <span>0.00%</span>
+                </div>
+              </div>
+              <div class="d-flex roitext">
+                <p>AUM <span>$40,000.98</span></p>
+                <button>Copy</button>
+              </div>
+            </div>
+            <div class="copycard">
+              <div>
+                <div class="d-flex flex-start">
+                  <div><img src="" alt="a"></div>
+                  <div class="protext">
+                    <h2>Centadollar</h2>
+                    <p>64/366</p>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="roitext">
+                  <p>7D ROI</p>
+                  <span>67.87%</span>
+                </div>
+                <div>
+                  Chart
+                </div>
+              </div>
+              <div class="d-flex">
+                <div class="roitext">
+                  <p>7D PNL</p>
+                  <span>+98,000.33</span>
+                </div>
+                <div class="roitext">
+                  <p>7D MDD</p>
+                  <span>0.00%</span>
+                </div>
+              </div>
+              <div class="d-flex roitext">
+                <p>AUM <span>$40,000.98</span></p>
+                <button>Copy</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+
+    searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+      if (sidebar.classList.contains("open")) {
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+      } else {
+        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+      }
+    }
+  </script>
+</body>
+
+</html>
