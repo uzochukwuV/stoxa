@@ -54,6 +54,7 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-default">
                     <i class="bi-list"></i>
+                    <i class="bx bx-menu btntop" id="btn"></i>
                 </span>
                 <span class="navbar-toggler-toggled">
                     <i class="bi-x"></i>
@@ -237,8 +238,9 @@
         })()
 
         var x = document.getElementsByClassName('navbar-toggler');
-        console.log(x)
+        
         x[0].addEventListener('click', (e)=>{
+            console.log(x)
             var y = document.getElementsByClassName('navbar-collapse');
             console.log(e.target)
             setTimeout( ()=> {

@@ -35,7 +35,7 @@ class LoginView(View):
         
         user = authenticate(email=email, password=password)
 
-        print(user.get_username())
+        
         if user is not None:
             login(request, user)
             return redirect(reverse('account', args=['auth']))
