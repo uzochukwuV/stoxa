@@ -333,3 +333,48 @@ display: none;
 color: #11101D !important;
 background-color: white !important;
 }
+.home-section .top {
+    position: relative;
+    min-height: 250px;
+    padding: 10px 2em;
+
+  }
+  .topbar {
+    display: none;
+    height: 50px;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+  }
+
+  .topbar #btn {
+   
+    border-radius: 3px;
+  }
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      display: none;
+    }
+
+    .topbar {
+      display: flex !important;
+    }
+    .home-section {
+      left: 0 !important;
+      width: 100% !important;
+    }
+    .open {
+      width: 25px;
+      display: block !important;
+      
+      animation: slideinO .6s ease;
+    }
+    @keyframes slideinO {
+      0% {
+        width: 30px;
+      }
+      100%{
+        width: 250px;
+      }
+    }
+}
