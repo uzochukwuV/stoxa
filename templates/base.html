@@ -402,12 +402,10 @@
                 data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-default">
-                    <i class="bi-list"></i>
-                   
-                    <i class="bx bx-menu btntop" id="btn"></i>
+                    <box-icon name='menu' ></box-icon>
                 </span>
                 <span class="navbar-toggler-toggled">
-                    <i class="bi-x"></i>
+                    <box-icon name='menu-alt-left' ></box-icon>
                 </span>
             </button>
             <!-- End Toggler -->
@@ -578,12 +576,12 @@
         })()
 
         var x = document.getElementsByClassName('navbar-toggler');
-        console.log(x)
+        
         x[0].addEventListener('click', (e)=>{
             var y = document.getElementsByClassName('navbar-collapse');
             
             setTimeout( ()=> {
-                console.log(y[0].classList.contains('show'))
+               
                 if (y[0].classList.contains('show')){
                     
                     y[0].classList.remove('show')

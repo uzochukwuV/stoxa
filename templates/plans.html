@@ -71,9 +71,9 @@
 }
 .sidebar i{
   color: #fff;
-  height: 60px;
-  min-width: 50px;
-  font-size: 28px;
+  height: 50px;
+  min-width: 40px;
+  font-size: 20px;
   text-align: center;
   line-height: 60px;
 }
@@ -149,7 +149,8 @@
 .sidebar li a{
   display: flex;
   height: 100%;
-  width: 100%;
+  width: 98%;
+  margin-right: 1rem;
   border-radius: 12px;
   align-items: center;
   text-decoration: none;
@@ -178,9 +179,9 @@
   color: #11101D;
 }
 .sidebar li i{
-  height: 50px;
-  line-height: 50px;
-  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
   border-radius: 12px;
 }
 .sidebar li.profile{
@@ -304,7 +305,73 @@
   justify-content: space-between;
 }
 
-.activity {
+
+.activity::-webkit-scrollbar {
+  display: none;
+}
+
+.active i, .active a , .active .links_name{
+  color: #11101D !important;
+  background-color: white !important;
+}
+
+.fs-1 {
+  font-size: 300% !important;
+}
+.card-title {
+  color: #d2d2d2 !important;
+}
+
+@media screen and (max-width: 700px) {
+      .sidebar {
+        display: none;
+      }
+
+      .topbar {
+        display: flex !important;
+        font-size: 32px;
+      }
+      .home-section {
+        left: 0 !important;
+        width: 100% !important;
+      }
+      .open {
+        width: 25px;
+        display: block !important;
+        
+        animation: slideinO .6s ease;
+      }
+      @keyframes slideinO {
+        0% {
+          width: 30px;
+        }
+        100%{
+          width: 250px;
+        }
+      }
+
+
+      .home-section .top,
+      .PortFolio,
+      .tradercards {
+        flex-direction: column;
+        padding: 10px 0.5em !important;
+
+      }
+
+      .home-section .top img {
+        width: 100%;
+        height: auto !important;
+      }
+
+      .PortFolio .list {
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+
+
+    .activity {
   padding: 3em 0;
   margin-right: calc(-.7 * var(--bs-gutter-x));
 }
@@ -356,29 +423,15 @@ table {
   scrollbar-gutter: 0;
 }
 
-.activity::-webkit-scrollbar {
-  display: none;
-}
-
-.active i, .active a , .active .links_name{
-  color: #11101D !important;
-  background-color: white !important;
-}
-
-.fs-1 {
-  font-size: 300% !important;
-}
-.card-title {
-  color: #d2d2d2 !important;
-}
 	 </style>
    </head>
 <body>
+
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus icon'></i>
         <div class="logo_name">StoxaFx</div>
-        <i class='bx bx-menu' id="btn" ></i>
+        <i class='bx bx-menu btntop' id="btn" ></i>
         <i class='bx bx-house' id="heart" ></i>
     </div>
     <ul class="nav-list">
@@ -386,7 +439,7 @@ table {
           
       </li>
       <li class="active">
-        <a href="{% url 'account' 'auth' %}">
+        <a href="{% url 'account' 'noauth' request.user.pk  %}">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name" id="dashboard">Dashboard</span>
         </a>
@@ -441,36 +494,35 @@ table {
        </a>
        <span class="tooltip">Setting</span>
      </li>
-     <li class="profile">
-         <div class="profile-details">
-           <img src="{% static 'images/andrea.jpg' %}" height="35px" alt="profileImg">
-           <div class="name_job">
-             <div class="name">Presh Lesli</div>
-             <div class="job">Pro Trader</div>
-           </div>
-         </div>
-         <a href="{% url 'logout' %}">
-          <i class='bx bx-log-out' id="log_out" ></i>
-         </a>
-     </li>
+     
     </ul>
   </div>
+  <div class="topbar d-flex align-items-center  justify-space-between bg-dark d-none">
+    <div class="d-flex align-items-center text-white h2 m-0"> <i class='bx bxl-c-plus-plus icon'></i>
+      <div class="logo_name m-0 h1 text-white">StoxaFx</div></div>
+    <div><i class='bx bx-menu btntop' id="btn"></i></div>
+  </div>
+
+
   <section class="home-section">
-      <div class="d-flex justify-space-between p-3">
+      <div class="d-flex justify-space-between p-3 flex-wrap">
         <div class="text">Dashboard</div>
-        <div class="text">{{request.user.username}}</div>
+        <div class=" ">
+            <div class="text">HELLO {{request.user.username.upper}} {{params.user.pk}}</div>
+            <a href="{% url 'profile' params.user.pk %}">Image</a>
+        </div>
       </div>
 	  <div>
 		<div class="row">
-			<div class="row">
-				<div class="col-sm-4">
+			<div class="row mx-auto">
+				<div class="col-sm-4 mx-auto">
 				  <div class="card">
 					<div class="card-body">
 					  <h5 class="card-title text-white">Balance</h5>
-					  <p class="card-text fs-1 text-white mb-5">$ 1000.00</p>
+					  <p class="card-text fs-2 text-white mb-5">$ {{params.user.total_balance}}.00</p>
            <div class="d-flex justify-space-between" style="align-items: center;">
-            <p class="card-text text-primary d-flex gap-2 fs-3" style="align-items: center;"> 2.30% <box-icon name='up-arrow' type='solid' color='#0ABF53' ></box-icon></p>
-					  <button class="btn border-0"><box-icon name='plus' flip='horizontal' color='#fffefe' ></box-icon></button>
+            <p class="card-text text-primary d-flex gap-2 fs-4" style="align-items: center;"> 2.30% <box-icon name='up-arrow' type='solid' color='#0ABF53' ></box-icon></p>
+					  <div class=""><box-icon name='plus' flip='horizontal' color='#fffefe' ></box-icon></div>
            </div>
             
 					</div>
@@ -480,10 +532,11 @@ table {
 				  <div class="card">
 					<div class="card-body">
 					  <h5 class="card-title text-white">Subscriptions</h5>
-					  <p class="card-text fs-1 text-white mb-5">$ 2340.00</p>
+					  <p class="card-text fs-2 text-white mb-5">$ {{params.user.sub_balance}}.00</p>
             <div class="d-flex justify-space-between" style="align-items: center;">
-              <p class="card-text text-primary d-flex gap-2 fs-3" style="align-items: center;"> 2.30% <box-icon name='up-arrow' type='solid' color='#0ABF53' ></box-icon></p>
-              <button class="btn border-0"><box-icon name='plus' flip='horizontal' color='#fffefe' ></box-icon></button>
+              <p class="card-text text-primary d-flex gap-2 fs-4" style="align-items: center;"> 2.30% <box-icon name='up-arrow' type='solid' color='#0ABF53' ></box-icon></p>
+              <p class="card-text text-primary d-flex gap-2 fs-4" style="align-items: center;"> Expected returns 60%</p>
+              <div class=" unset"><box-icon name='plus' flip='horizontal' color='#fffefe' ></box-icon></div>
              </div>
 					</div>
 				  </div>
@@ -492,10 +545,11 @@ table {
 				  <div class="card">
 					<div class="card-body">
 					  <h5 class="card-title text-white">Copy Trading</h5>
-					  <p class="card-text fs-1 text-white mb-5">$ 500.00</p>
+					  <p class="card-text fs-2 text-white mb-5">$ {{params.user.copy_balance}}.00</p>
             <div class="d-flex justify-space-between" style="align-items: center;">
-              <p class="card-text text-primary d-flex gap-2 fs-3" style="align-items: center;"> 2.30% <box-icon name='up-arrow' type='solid' color='#0ABF53' ></box-icon></p>
-              <button class="btn border-0"><box-icon name='plus' flip='horizontal' color='#fffefe' ></box-icon></button>
+              <p class="card-text text-primary d-flex gap-2 fs-4" style="align-items: center;"> 2.30% <box-icon name='up-arrow' type='solid' color='#0ABF53' ></box-icon></p>
+              <p class="card-text text-primary d-flex gap-2 fs-4" style="align-items: center;"> Expected returns 60%</p>
+              <div class="border-0"><box-icon name='plus' flip='horizontal' color='#fffefe' ></box-icon></div>
              </div>
 					</div>
 				  </div>
@@ -504,10 +558,10 @@ table {
 	  </div>
 
     
-    <div class=" activity">
-      <table class="table">
+    <div class="mx-2 activity ">
+      <table class="table ">
         <thead class="activityhead ">
-          <tr>
+          <tr class="">
             <th scope="col">Trader</th>
             <th scope="col" class="col-6 ">Activity</th>
             <th scope="col">Trade</th>
@@ -515,17 +569,25 @@ table {
           </tr>
         </thead>
         <tbody>
-          <tr aria-colcount="top tarders" class="traderActivity p-5">
-            <td scope="row">
-              <div>
-                Mark Clean
-              <box-icon name='badge-check' type='solid' color='#002cff' ></box-icon>
-              </div>
-            </td>
-            <td><div>2mins</div></td>
-            <td><div>$40,000</div></td>
-            <td><div>7.90%</div></td>
-          </tr>
+          {% if params.traders %}
+            {% for trader in params.traders %}
+            <tr aria-colcount="top tarders" class="traderActivity p-5">
+              <td scope="row">
+                <div>
+                  {{trader.name}}
+                <box-icon name='badge-check' type='solid' color='#002cff' ></box-icon>
+                </div>
+              </td>
+              <td><div>{{trader.activity}}</div></td>
+              <td><div>$ {{trader.trade}}</div></td>
+              <td><div>{{trader.total_roi}} %</div></td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr aria-colcount="top tarders" class="traderActivity p-5">
+             <td>No trader available</td>
+            </tr>
+          {% endif %}
           <tr aria-colcount="top tarders" class="traderActivity p-3">
             <td scope="row">
               <div>
@@ -575,29 +637,6 @@ table {
     </div>
     
   </section>
-  <script>
-  let sidebar = document.querySelector(".sidebar");
-  let closeBtn = document.querySelector("#btn");
-  let searchBtn = document.querySelector(".bx-search");
-
-  closeBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("open");
-    menuBtnChange();//calling the function(optional)
-  });
-
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-    sidebar.classList.toggle("open");
-    menuBtnChange(); //calling the function(optional)
-  });
-
-  // following are the code to change sidebar button(optional)
-  function menuBtnChange() {
-   if(sidebar.classList.contains("open")){
-     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-   }else {
-     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-   }
-  }
-  </script>
+ 
 </body>
 </html>

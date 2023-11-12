@@ -4,7 +4,59 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+  
+    {% block css %}
+   
+    <style>
+        .billings {
+            text-align: start !important;
+            justify-content: start !important;
+            
+        }
+        .text {
+            margin: 2em 0;
+            
+        }
+        .text button {
+            all: unset;
+            outline: 0;
+            
+            padding: 3px 20px;
+            color: #2d374b;
+            border-radius: 4px;
+        }
+        .text .textbutton {
+            border: 1px solid #d3d2d2;
+            padding: 2px;
+            width: fit-content;
+            border-radius: 4px;
+        }
+        .dark {
+            background-color: #2d374b !important;
+            color: white !important;
+        }
 
+        .swiper-slide .card {
+            
+            
+        }
+        .billings .billing {
+            padding: 25px;
+        }
+        .billings .billing button {
+              padding: 8px;
+              color: #2d374b;
+              background-color: white;
+              border-radius: 6px !important;
+              font-size: 14px !important;
+              
+        }
+    </style>
+     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    {% endblock %}
+</head>
 
 <body>
     <!-- ========== HEADER ========== -->
@@ -98,7 +150,7 @@
                     <!-- Icon Block -->
                     <div class="text-center">
                         <div class="mb-3">
-                            <img src="{% static 'assets/logos/insight.png' %}" alt="" height="40px" srcset="">
+                            <box-icon type='logo' name='sketch' color='#2d374b'></box-icon>
                         </div>
 
                         <h5>Trusted Insights</h5>
@@ -113,7 +165,7 @@
                     <!-- Icon Block -->
                     <div class="text-center">
                         <div class="mb-3">
-                            <img src="{% static 'assets/logos/maximize.png' %}" alt="" height="40px" srcset="">
+                            <box-icon type='solid' name='diamond' color="#2d374b"></box-icon>
                         </div>
 
                         <h5>Maximize Profits</h5>
@@ -128,7 +180,8 @@
                     <!-- Icon Block -->
                     <div class="text-center">
                         <div class="mb-3">
-                            <img src="{% static 'assets/logos/search.png' %}" alt="" height="40px" srcset="">
+                            <box-icon name='shield-quarter' color="#2d374b"  type='solid'></box-icon>
+                           
                         </div>
 
                         <h5>Transparency</h5>
@@ -143,7 +196,7 @@
                     <!-- Icon Block -->
                     <div class="text-center">
                         <div class="mb-3">
-                            <img src="{% static 'assets/logos/support.png' %}" alt="" height="40px" srcset="">
+                            <box-icon type='solid' name='time-five' color="#2d374b"></box-icon>
                         </div>
 
                         <h5>24/7 Support</h5>
@@ -221,65 +274,119 @@
                         partial trading techniques
                         used by most succcessful forex traders.
                     </p>
+                    <div id="services" class="text d-flex flex-column gap-3">
+                        <div class="h3">
+                            We've got a plan thats perfect for you
+                        </div>
+                        <div class="textbutton">
+                            <button class="dark">Short term</button>
+                            <button>Long Term</button>
+                        </div>
+                    </div>
                 </div>
                 <div
                     class="js-swiper-client swiper text-center swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
                     <div class="swiper-wrapper" id="swiper-wrapper-c1b1cff057761042d" aria-live="polite"
-                        style="transform: translate3d(100px, 0px, 0px);">
+                        style="transform: translate3d(0px, 0px, 0px);">
                         <!--  -->
 
                         <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 3"
                             style="width: 372px;  margin-right: 15px;">
-                            <div class="card mb-3 me-2" style="max-width: 540px;">
-                                <div class="row no-gutters p-2 gap-2">
-                                    <div class="h4">Starter</div>
-                                    <div class="h2">$500.00</div>
-                                    <div>
-                                        <div>Monthly</div>
-                                        <div>Interest rate <span style="color: #0ABF53;">39.5%</span></div>
-                                    </div>
-                                    <div>
-                                        <button class="btn w-75 btn-sm "
-                                            style="background-color: #0ABF53;">Subscribe</button>
+                            <div class="card box-shadow mb-3 me-2" style="max-width: 450px;">
+                                <div class="billings">
+                                    
+                                    <div class="billing">
+                                        <div class="item d-flex flex-column gap-3">
+                                            <div class="d-flex flex-column gap-3">
+                                                <div class="d-flex ">
+                                                    <box-icon name='leaf' size="lg" type='solid' flip='horizontal' color='#2d374b' ></box-icon>
+                                                </div>
+                                                <div class="h5">Basic Subscription</div>
+                                                <div class="h1 d-flex align-items-end">
+                                                    <div>$500</div>
+                                                    <div class="fs-6 pb-2">One Month Plan</div>
+                                                </div>
+                                                <div class="fs-5">
+                                                    Cumulative interest  40%
+                                                </div>
+                                                <div class="fs-sm">Basic features for up to 10years</div>
+                                                <div class="row d-flex gap-2">
+                                                    <a href="{% url 'login' %}" class="w-100"><button class="border dark w-100">Get started</button></a>
+                                                    <a href=""><button class="border w-100">Chat us</button></a>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
 
                         <!--  -->
-                        <div class="swiper-slide swiper-slide-next" role="group" aria-label="1 / 3"
+                        <div class="swiper-slide swiper-slide-next" role="group"  aria-label="1 / 3"
                             style="width: 372px;  margin-right: 15px;">
-                            <div class="card mb-3 me-2" style="max-width: 540px;">
-                                <div class="row no-gutters p-2 gap-2">
-                                    <div class="h4">Intermediate</div>
-                                    <div class="h2">$1500.00</div>
-                                    <div>
-                                        <div>Monthly</div>
-                                        <div>Interest rate <span style="color: #0ABF53;">55.5%</span></div>
-                                    </div>
-                                    <div>
-                                        <button class="btn w-75 btn-sm "
-                                            style="background-color: #0ABF53;">Subscribe</button>
+                            <div class="card mb-3 me-2" style="max-width: 450px;">
+                                <div class="billings">
+                                    
+                                    <div class="billing">
+                                        <div class="item d-flex flex-column gap-3">
+                                            <div class="d-flex flex-column gap-3">
+                                                <div class="d-flex ">
+                                                    <box-icon name='leaf' size="lg" type='solid' flip='horizontal' color='#2d374b' ></box-icon>
+                                                </div>
+                                                <div class="h5">Premium Subscription</div>
+                                                <div class="h1 d-flex align-items-end">
+                                                    <div>$2500</div>
+                                                    <div class="fs-6 pb-2">One Month Plan</div>
+                                                </div>
+                                                <div class="fs-5">
+                                                    Cumulative interest  65%
+                                                </div>
+                                                <div class="fs-sm">Premuim features for up to 10years</div>
+                                                <div class="row d-flex gap-2">
+                                                    <a href="{% url 'login' %}" class="w-100"><button class="border dark w-100">Get started</button></a>
+                                                    <a href=""><button class="border w-100">Chat us</button></a>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                         <!--  -->
                         <div class="swiper-slide" role="group" aria-label="1 / 3"
                             style="width: 372px;  margin-right: 15px;">
-                            <div class="card mb-3 me-2" style="max-width: 540px;">
-                                <div class="row no-gutters p-2 gap-2">
-                                    <div class="h4">Pro</div>
-                                    <div class="h2">$2500.00</div>
-                                    <div>
-                                        <div>Monthly</div>
-                                        <div>Interest rate <span style="color: #0ABF53;">79.5%</span></div>
-                                    </div>
-                                    <div>
-                                        <button class="btn w-75 btn-sm "
-                                            style="background-color: #0ABF53;">Subscribe</button>
+                            <div class="card mb-3 me-2" style="max-width: 450px;">
+                                <div class="billings">
+                                    
+                                    <div class="billing">
+                                        <div class="item d-flex flex-column gap-3">
+                                            <div class="d-flex flex-column gap-3">
+                                                <div class="d-flex ">
+                                                    <box-icon name='leaf' size="lg" type='solid' flip='horizontal' color='#2d374b' ></box-icon>
+                                                </div>
+                                                <div class="h5">Mega Subscription</div>
+                                                <div class="h1 d-flex align-items-end">
+                                                    <div>$5000</div>
+                                                    <div class="fs-6 pb-2">One Month Plan</div>
+                                                </div>
+                                                <div class="fs-5">
+                                                    Cumulative interest  80%
+                                                </div>
+                                                <div class="fs-sm">Mega features for up to 10years</div>
+                                                <div class="row d-flex gap-2">
+                                                    <a href="{% url 'login' %}" class="w-100"><button class="border dark w-100">Get started</button></a>
+                                                    <a href=""><button class="border w-100">Chat us</button></a>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
 
@@ -314,7 +421,7 @@
                     </ul>
                     <!-- End List Checked -->
 
-                    <a class="btn btn-primary" href="#">Our services</a>
+                    <a class="btn btn-primary" href="#services">Our services</a>
                 </div>
                 <!-- End Col -->
             </div>
@@ -390,7 +497,7 @@
         </div>
         <!-- End Stats -->
 
-        <div class="container">
+        <div id="story" class="container">
             <div
                 class="js-swiper-client swiper text-center swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
                 <div class="swiper-wrapper" id="swiper-wrapper-c1b1cff057761042d" aria-live="polite"
@@ -529,67 +636,28 @@
 
                 <div class="col-md-auto">
                     <div class="d-grid d-sm-flex gap-3">
-                        <a class="btn btn-primary" href="#">Request Support</a>
-                        <a class="btn btn-ghost-light btn-pointer" href="#">Sign up free</a>
+                        <a class="btn btn-primary" href="#">Subscribe with Us</a>
+                        <a class="btn btn-ghost-light btn-pointer" href="{% url 'register' %}">Sign up free</a>
                     </div>
                 </div>
                 <!-- End Col -->
             </div>
             <!-- End Row -->
 
-            <div class="border-bottom border-white-10">
+            <div id="message" class="border-bottom border-white-10">
                 <div class="row py-6">
-                    <div class="col-6 col-sm-4 col-lg mb-7 mb-lg-0">
-                        <span class="text-cap text-white">Resources</span>
-
-                        <!-- List -->
-                        <ul class="list-unstyled list-py-1 mb-0">
-
-                            <li><a class="link link-light link-light-75" href="#">Guidance</a></li>
-                            <li><a class="link link-light link-light-75" href="#">Customer Stories</a></li>
-                            <li><a class="link link-light link-light-75" href="#">Support <i
-                                        class="bi-box-arrow-up-right ms-1"></i></a></li>
-
-
-                        </ul>
-                        <!-- End List -->
+                    
+                    <!-- End Col -->
+                    <div class="col-6 col-sm-4 col-lg mb-7 mb-lg-0 d-flex gap-3 flex-column mr-5">
+                        <div class=" text-white">Email Us Now</div>
+                        <input type="text" placeholder="Name" class="text-white form-group w-100 p-2 bg-dark border-rounded border-white outline-0">
+                        <input type="email" placeholder="Email" class="text-white w-100 p-2 bg-dark border-rounded border-white">
+                        <textarea name="" id="" placeholder="Your message" cols="20" rows="5" class="text-white w-100 p-2 bg-dark border-rounded border-white"></textarea>
+                        <input type="submit" class="btn btn-pointer border-rounded border-white">
                     </div>
                     <!-- End Col -->
-
-                    <div class="col-6 col-sm-4 col-lg mb-7 mb-lg-0">
-                        <span class="text-cap text-white">Company</span>
-
-                        <!-- List -->
-                        <ul class="list-unstyled list-py-1 mb-0">
-
-                            <li><a class="link link-light link-light-75" href="#">Company</a></li>
-                            <li><a class="link link-light link-light-75" href="#">Careers</a> <span
-                                    class="fs-6 fw-bold text-primary">— We're hiring</span></li>
-                            <li><a class="link link-light link-light-75" href="#">Contacts</a></li>
-
-                        </ul>
-                        <!-- End List -->
-                    </div>
-                    <!-- End Col -->
-
-
-                    <!-- End Col -->
-
-                    <div class="col-6 col-sm-4 col-lg mb-7 mb-sm-0">
-                        <span class="text-cap text-white">Legal</span>
-
-                        <!-- List -->
-                        <ul class="list-unstyled list-py-1 mb-5">
-                            <li><a class="link link-light link-light-75" href="#">Terms of use</a></li>
-                            <li><a class="link link-light link-light-75" href="#">Privacy policy <i
-                                        class="bi-box-arrow-up-right ms-1"></i></a></li>
-                        </ul>
-                        <!-- End List -->
-
-
-                        <!-- End List -->
-                    </div>
-                    <!-- End Col -->
+                   
+                    <!-- ui -->
 
                     <div class="col-6 col-sm-4 col-lg">
                         <span class="text-cap text-white">Follow us</span>
@@ -646,9 +714,26 @@
 
 
                         </ul>
+                        
                         <!-- End List -->
                     </div>
+                    
                     <!-- End Col -->
+                    <div class="col-6 col-sm-4 col-lg mb-7 mb-lg-0">
+                        <span class="text-cap text-white">Resources</span>
+
+                        <!-- List -->
+                        <ul class="list-unstyled list-py-1 mb-0">
+
+                            <li><a class="link link-light link-light-75" href="#">Guidance</a></li>
+                            <li><a class="link link-light link-light-75" href="#story">Customer Stories</a></li>
+                            <li><a class="link link-light link-light-75" href="#">Support <i
+                                        class="bi-box-arrow-up-right ms-1"></i></a></li>
+
+
+                        </ul>
+                        <!-- End List -->
+                    </div>
                 </div>
                 <!-- End Row -->
             </div>
@@ -685,7 +770,7 @@
     <script type="module" src="chrome-extension://jdkknkkbebbapilgoeccciglkfbmbnfm/hook.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <script src="{% static 'assets/js/vendor.min.js' %}"></script>
-
+    <script src="https://unpkg.com/scrollreveal"></script>
     <!-- JS Unify -->
 
 
@@ -738,6 +823,11 @@
                 },
             });
         })()
+
+       
+ScrollReveal().reveal('.container', { delay: 200 });
+
+
     </script>
 
 </body>

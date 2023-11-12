@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -24,6 +25,11 @@ class PrimaryUser(AbstractUser):
     country         = models.CharField(max_length=100, blank=True, null=True)
     isPremium       = models.BooleanField(default=False)
     isVerified      = models.BooleanField(default=False)
+    total_balance   = models.IntegerField(default=0)
+    sub_balance     = models.IntegerField(default=0)
+    copy_balance    = models.IntegerField(default=0)
+    
+
     
 
     class Meta:
@@ -86,7 +92,15 @@ class Subscription(models.Model):
         ('Deposit', 'deposit'),
         ('Withdrawal', 'withdrawal')
     )
+    balance = models.IntegerField(default=0)
     sub_type = models.CharField(choices=listChoice, max_length=100, blank=True, null=True)
     subscriber = models.ForeignKey(PrimaryUser, on_delete=models.CASCADE, related_name='subscriber')
     
+
+class Trader(models.Model):
+    name = models.CharField(max_length=245, null=True, blank=True)
+    activity = models.IntegerField(default=1)
+    trade = models.IntegerField(default=1000)
+    total_roi = models.IntegerField(default=4)
+
 

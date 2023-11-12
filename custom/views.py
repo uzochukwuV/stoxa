@@ -1,3 +1,6 @@
+import math
+import random
+from tokenize import String
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
@@ -38,7 +41,7 @@ class LoginView(View):
         
         if user is not None:
             login(request, user)
-            return redirect(reverse('account', args=['auth']))
+            return redirect(reverse('account', args=['auth',user.pk ]))
         
         return render(request, 'login/login.html', {'email':email, 'password':password})
 
@@ -98,32 +101,54 @@ class RegisterView(View):
 
 
 class AccountPageView(View, mixins.LoginRequiredMixin):
-    def get(self, request, auth):
+    def get(self, request, auth, pk):
         login = False
         if auth == 'auth':
             login = True
 
-        return render(request, 'account/account_page.html', {'login': login})
+        randomNum = math.floor(7.9)
+        
+        
+        user = PrimaryUser.objects.get(pk=pk)
+        traders = Trader.objects.all()[:10]
+
+        print(user.total_balance)
+        params = {
+            'user':user,
+            "login": login,
+            "traders": traders
+            }
+        return render(request, 'account/index.html', {'params': params})
+        
+
+        
+        
 
     def post(self, request):
-        return render(request)
+        return render(request, '')
 
 
 class ProfileView(View, mixins.LoginRequiredMixin):
-    def get(self, request, auth):
-        return render(request)
+    def get(self, request, pk):
+        print(type(pk))
+        userProfile = PrimaryUser.objects.get(pk=pk)
+        params = {
+            'userProfile':userProfile
+        }
+
+        return render(request, 'setting/setting.html', {'params':params})
 
     def post(self, request):
-        return render(request)
+        return render(request, '')
 
 
 
 class DepositView(View, mixins.LoginRequiredMixin):
     def get(self, request):
-        return render(request)
+        return render(request, '')
 
     def post(self, request):
-        return render(request)
+        return render(request, '')
 
 class WithdrawPageView(View, mixins.LoginRequiredMixin):
     def get(self, request):

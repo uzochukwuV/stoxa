@@ -1,0 +1,178 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="{% static 'style.css'  %}">
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    {% block title %}
+    <title>Home</title> 
+    {% endblock title %}
+    <style>
+        #dropdown {
+            display: none;
+            padding-left: 20px;
+            transition:height 3.3s ease ;
+        }
+         .show{
+            display: block !important;
+            transition: all 0.3s ease ;
+        }
+        li .arrow i {
+            display: none !important;
+        }
+        li .arrow .active {
+            display: block !important;
+        }
+
+        .nav-links li a#active i , 
+        .nav-links li a#active .link-name,
+        .nav-links li a#active:before{
+            color: var(--primary-color);
+            
+        }
+        a#active::before {
+            content: "";
+    position: absolute;
+    left: -7px;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+        }
+    </style>
+{% block style %}
+
+{%  endblock style %}
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="images/logo.png" alt="">
+            </div>
+
+            <span class="logo_name">Stoxa</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li>
+                    {% if "account" in request.path %}
+                    <a href="#" id="active">
+                    {% else %}
+                    <a href="{% url 'account' 'noauth' request.user.pk %}">
+                    {% endif %}
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Dashboard</span>
+                </a></li>
+                
+                <li>
+                    {% if "copy" in request.path %}
+                    <a href="#" id="active">
+                    {% else %}
+                    <a href="{% url 'copy' %}">
+                    {% endif %}
+                    <i class="uil uil-users-alt"></i>
+                    <span class="link-name">Traders</span>
+                </a></li>
+                <li>
+                    
+                    <a href="#" id="dropdown_btn">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Transaction</span>
+                    <div class="arrow">
+                        <i class="uil uil-angle-down active"></i>
+                        
+                        <i class="uil uil-angle-up "></i>
+                    </div>
+                </a>
+                <div class="" id="dropdown">
+                    <a href="#">
+                        <i class="uil uil-chart"></i>
+                        <span class="link-name">Withdraw</span>
+                    </a>
+                    <a href="#">
+                        <i class="uil uil-chart"></i>
+                        <span class="link-name">Deposit</span>
+                    </a>
+                    <a href="#">
+                        <i class="uil uil-chart"></i>
+                        <span class="link-name">Transfer</span>
+                    </a>
+                </div>
+                
+                </li>
+                <li><a href="#">
+                    <i class="uil uil-thumbs-up"></i>
+                    <span class="link-name">Like</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-comments"></i>
+                    <span class="link-name">Comment</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-share"></i>
+                    <span class="link-name">Share</span>
+                </a></li>
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a href="#">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name">Logout</span>
+                </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                    <span class="link-name">Dark Mode</span>
+                </a>
+
+                <div class="mode-toggle">
+                  <span class="switch"></span>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+            
+            <img src="images/profile.jpg" alt="">
+        </div>
+
+        {% block content %}
+
+
+        {%  endblock content %}
+    </section>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        var btn = document.getElementById('dropdown_btn')
+        var dropdown = document.getElementById('dropdown');
+
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle('show');
+        })
+    </script>
+</body>
+</html>
