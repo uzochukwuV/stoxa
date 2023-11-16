@@ -28,7 +28,6 @@
 
 body{
     min-height: 100vh;
-    background-color: var(--primary-color);
 }
 body.dark{
     --primary-color: #3A3B3C;
@@ -43,21 +42,12 @@ body.dark{
     --title-icon-color: #CCC;
 }
 /* === Custom Scroll Bar CSS === */
-::-webkit-scrollbar {
-    width: 8px;
-}
+
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
 
-::-webkit-scrollbar-thumb:hover {
-    background: #0b3cc1;
-}
+
 
 body.dark::-webkit-scrollbar-thumb:hover,
 body.dark .activity-data::-webkit-scrollbar-thumb:hover{

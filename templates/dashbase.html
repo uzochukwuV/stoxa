@@ -85,43 +85,44 @@
                     <i class="uil uil-users-alt"></i>
                     <span class="link-name">Traders</span>
                 </a></li>
-                <li>
-                    
-                    <a href="#" id="dropdown_btn">
-                    <i class="uil uil-chart"></i>
-                    <span class="link-name">Transaction</span>
-                    <div class="arrow">
-                        <i class="uil uil-angle-down active"></i>
-                        
-                        <i class="uil uil-angle-up "></i>
-                    </div>
-                </a>
-                <div class="" id="dropdown">
-                    <a href="#">
-                        <i class="uil uil-chart"></i>
-                        <span class="link-name">Withdraw</span>
-                    </a>
-                    <a href="#">
-                        <i class="uil uil-chart"></i>
-                        <span class="link-name">Deposit</span>
-                    </a>
-                    <a href="#">
-                        <i class="uil uil-chart"></i>
-                        <span class="link-name">Transfer</span>
-                    </a>
-                </div>
                 
-                </li>
+                <!--  -->
                 <li><a href="#">
-                    <i class="uil uil-thumbs-up"></i>
-                    <span class="link-name">Like</span>
+                    <i class="uil uil-money-withdraw"></i>
+                    <span class="link-name">Withdraw</span>
+                </a></li>
+                <li>{% if "deposit" in request.path %}
+                    <a href="#" id="active">
+                    {% else %}
+                    <a href="{% url 'deposit' %}">
+                    {% endif %}
+                    <i class="uil uil-transaction"></i>
+                    <span class="link-name">Deposit</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-gift"></i>
+                    <span class="link-name">Transfer</span>
+                </a></li>
+                <li>{% if "currency" in request.path %}
+                    <a href="{% url 'currency' %}" id="active">
+                    {% else %}
+                    <a href="{% url 'currency' %}">
+                    {% endif %}
+                    <i class="uil uil-gift"></i>
+                    <span class="link-name">Currency Calculator</span>
+                </a></li>
+
+                <!--  -->
+                <li><a href="#">
+                    <i class="uil uil-gift"></i>
+                    <span class="link-name">Redeem Bonus</span>
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-comments"></i>
-                    <span class="link-name">Comment</span>
+                    <span class="link-name">Notifications</span>
                 </a></li>
                 <li><a href="#">
-                    <i class="uil uil-share"></i>
+                    <i class="uil uil-user"></i>
                     <span class="link-name">Share</span>
                 </a></li>
             </ul>
@@ -166,13 +167,13 @@
 
     <script src="{% static 'js/script.js' %}"></script>
     <script>
-        var btn = document.getElementById('dropdown_btn')
-        var dropdown = document.getElementById('dropdown');
+        // var btn = document.getElementById('dropdown_btn')
+        // var dropdown = document.getElementById('dropdown');
 
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            dropdown.classList.toggle('show');
-        })
+        // btn.addEventListener('click', function(e) {
+        //     e.preventDefault();
+        //     dropdown.classList.toggle('show');
+        // })
     </script>
 </body>
 </html>

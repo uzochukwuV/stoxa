@@ -49,6 +49,9 @@
       height: 100px;
     }
     @media screen and (max-width: 700px) {
+      .copycard  {
+        min-width: 200px !important;
+      }
       .sidebar {
         display: none;
       }
@@ -213,6 +216,15 @@
     .tradercards {
       padding: 0;
     }
+
+    .chartapp, #chart {
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 10px;
+      align-items: center;
+    }
+
+    
     
   </style>
   {%  endblock style %}
@@ -336,11 +348,53 @@
                 <button>Copy</button>
               </div>
             </div>
+            <div class="copycard">
+              <div>
+                <div class="d-flex flex-start">
+                  <div><img src="" alt="a"></div>
+                  <div class="protext">
+                    <h2>Centadollar</h2>
+                    <p>64/366</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="chartapp">
+                <div class="right">
+                  <div class="roitext">
+                    <p>7D ROI</p>
+                    <span>67.87%</span>
+                  </div>
+  
+                  <div class="roitext">
+                    <p>7D PNL</p>
+                    <span>+98,000.33</span>
+                  </div>
+                </div>
+                <div id="chart" style="min-width: 30%;"></div>
+                <div class="left">
+                  <div>
+                    Chart
+                  </div>
+                  <div class="roitext">
+                    <p>7D MDD</p>
+                    <span>0.00%</span>
+                  </div>
+  
+                </div>
+              </div>
+              
+              
+              <div class="d-flex roitext">
+                <p>AUM <span>$40,000.98</span></p>
+                <button>Copy</button>
+              </div>
+            </div>
 
           </div>
         </div>
       </section>
     </div>
   </div>
-
+<script type="module" src="{% static 'js/chart.js'  %}"></script>
   {%  endblock content %}

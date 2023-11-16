@@ -22,11 +22,11 @@ modeToggle.addEventListener("click", () =>{
     }
 });
 
-var dropdown = document.getElementById("dropdown");
+
 
 sidebarToggle.addEventListener("click", () => {
-    console.log(dropdown);
-    dropdown.classList.remove('show')
+    
+    
     sidebar.classList.toggle("close");
     if(sidebar.classList.contains("close")){
         localStorage.setItem("status", "close");

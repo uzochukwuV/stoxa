@@ -1,0 +1,190 @@
+{% extends "dashbase.html" %}
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<!-- Coding by CodingNepal || www.codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    {% block title %}
+    <title>Deposit | {{request.user}}</title> 
+    {% endblock title %}
+
+    {% block style %}
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'tailwindcss-colors.css' %}" >
+
+    <link rel="stylesheet" href="{% static 'deposit.css' %}">
+    <style>
+      .converter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5%;
+      }
+
+      .mt-50 {
+        margin-top: 20%;
+      }
+
+      
+
+      .paymentpage {
+        width: 100%;
+        
+        
+      }
+
+      @media screen and (min-width: 1000px) {
+        .paymentpage {
+        max-width: 850px;
+        
+        
+      }
+      }
+      .tranlate {
+        transform: translateX(10%);
+      }
+      @media screen and (max-width: 800px) {
+        .tranlate {
+        transform: translateX(0) !important;
+      }
+      }
+
+      
+    </style>
+
+{% endblock style %}
+  </head>
+  <body>
+    {% block content %}
+        <section class="payment-section paymentpage translate">
+          <div class="container">
+              <div class="payment-wrapper">
+                  
+                  <div class="payment-right">
+                      <form action="" class="payment-form">
+                          <h1 class="payment-title">Payment Details</h1>
+                          <div class="payment-method">
+                              <input type="radio" name="payment-method" id="method-1" checked>
+                              <label for="method-1" class="payment-method-item cash">
+                        
+                                <img    src="{% static 'pay_images/visa.png' %}"
+                                  class="cash" alt="">
+                              </label>
+                              <input type="radio" name="payment-method" id="method-2">
+                              <label for="method-2" class="payment-method-item cash">
+                                <img    src="{% static 'pay_images/mastercard.png' %}"
+                                class="cash" alt="">
+                              </label>
+                              <input type="radio" name="payment-method" id="method-3">
+                              <label for="method-3" class="payment-method-item cash">
+                                <img    src="{% static 'pay_images/paypal.png' %}"
+                                class="cash" alt="">
+                              </label>
+                              <input type="radio" name="payment-method" id="method-4">
+                              <label for="method-4" class="payment-method-item crypto">
+                                <img    src="{% static 'pay_images/btc.png' %}"
+                                class="cash" alt="">
+                              </label>
+                              <input type="radio" name="payment-method" id="method-5">
+                              <label for="method-5" class="payment-method-item crypto">
+                                <img    src="{% static 'pay_images/usdt.png' %}"
+                                class="cash" alt="">
+                              </label>
+                          </div>
+                          <div id="cash-method">
+                            <div class="payment-form-group">
+                              <input type="email" placeholder=" " class="payment-form-control" id="email">
+                              <label for="email" class="payment-form-label payment-form-label-required">Email Address</label>
+                          </div>
+                          <div class="payment-form-group">
+                              <input type="text" placeholder=" " class="payment-form-control" id="card-number">
+                              <label for="card-number" class="payment-form-label payment-form-label-required">Card Number</label>
+                          </div>
+                          <div class="payment-form-group-flex">
+                              <div class="payment-form-group">
+                                  <input type="date" placeholder=" " class="payment-form-control" id="expiry-date">
+                                  <label for="expiry-date" class="payment-form-label payment-form-label-required">Expiry Date</label>
+                              </div>
+                              <div class="payment-form-group">
+                                  <input type="text" placeholder=" " class="payment-form-control" id="cvv">
+                                  <label for="cvv" class="payment-form-label payment-form-label-required">CVV</label>
+                              </div>
+                          </div>
+                          <button type="submit" class="payment-form-submit-button"><i class="ri-wallet-line"></i> Pay</button>
+                      
+                          </div>
+                          <div id="crypto-method">
+                              <form action="" method="post">
+                                <div class="payment-form-group">
+                                  <input type="email" placeholder=" " class="payment-form-control" id="email">
+                                  <label for="email" class="payment-form-label payment-form-label-required">Email Address</label>
+                              </div>
+                              <div class="payment-form-group">
+                                <input type="text" placeholder=" " class="payment-form-control" id="email">
+                                <label for="email" class="payment-form-label payment-form-label-required"> Address</label>
+                            </div>
+                            <div class="payment-form-group">
+                              <input type="button" class="payment-form-control payment-form-submit-button" value="Generate Address"  id="">
+                              
+                          </div>
+
+                              </form>
+                          </div>
+                          </form>
+                  </div>
+              </div>
+          </div>
+      </section>
+     
+
+    <!-- JavaScript -->
+    
+
+    <script>
+      var cash_method = document.getElementById("cash-method");
+      var crypto_method = document.getElementById("crypto-method");
+      var btc = document.getElementsByClassName("crypto")
+      const cash = document.getElementsByClassName('cash')
+      // console.log(Array.isArray(Array(cash)));
+      //   console.log('000000');
+      
+      // console.log(Array(cash));
+      crypto_method.style.display = "none";
+
+      // console.log(btc);
+        
+        for (x of btc){
+          
+          x.addEventListener("click", ()=> {
+          
+            crypto_method.style.display = "block";
+          cash_method.style.display = "none";
+        });
+      }
+        for (x of cash){
+          
+          x.addEventListener("click", ()=> {
+          
+          crypto_method.style.display = "none";
+          cash_method.style.display = "block";
+        });
+        }
+
+        
+
+
+
+    </script>
+    {% endblock content %}
+  </body>
+</html>

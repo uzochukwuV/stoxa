@@ -14,6 +14,9 @@
             justify-content: start !important;
             
         }
+        .billings .billing .h1 {
+            color: var(--bs-primary);
+        }
         .text {
             margin: 2em 0;
             
@@ -33,12 +36,13 @@
             border-radius: 4px;
         }
         .dark {
-            background-color: #2d374b !important;
-            color: white !important;
+            background-color: #fff !important;
+            color: #2d374b !important;
+            border: 1px solid var(--bs-primary);
         }
 
         .swiper-slide .card {
-            
+            margin: 0 auto;
             
         }
         .billings .billing {
@@ -46,10 +50,11 @@
         }
         .billings .billing button {
               padding: 8px;
-              color: #2d374b;
-              background-color: white;
+              background-color: var(--bs-primary);
+              color: white;
               border-radius: 6px !important;
               font-size: 14px !important;
+              border: 0;
               
         }
     </style>
@@ -275,13 +280,13 @@
                         used by most succcessful forex traders.
                     </p>
                     <div id="services" class="text d-flex flex-column gap-3">
-                        <div class="h3">
+                        <div >
                             We've got a plan thats perfect for you
                         </div>
-                        <div class="textbutton">
+                        <!-- <div class="textbutton">
                             <button class="dark">Short term</button>
                             <button>Long Term</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div
@@ -297,22 +302,22 @@
                                     
                                     <div class="billing">
                                         <div class="item d-flex flex-column gap-3">
-                                            <div class="d-flex flex-column gap-3">
+                                            <div class="d-flex text-center flex-column gap-3">
                                                 <div class="d-flex ">
                                                     <box-icon name='leaf' size="lg" type='solid' flip='horizontal' color='#2d374b' ></box-icon>
                                                 </div>
-                                                <div class="h5">Basic Subscription</div>
-                                                <div class="h1 d-flex align-items-end">
+                                                <div class="h6">Basic Subscription</div>
+                                                <div class="h1 d-flex align-items-end justify-content-center">
                                                     <div>$500</div>
-                                                    <div class="fs-6 pb-2">One Month Plan</div>
+                                                    <div class="fs-6 pb-2">1 month</div>
                                                 </div>
                                                 <div class="fs-5">
                                                     Cumulative interest  40%
                                                 </div>
                                                 <div class="fs-sm">Basic features for up to 10years</div>
                                                 <div class="row d-flex gap-2">
-                                                    <a href="{% url 'login' %}" class="w-100"><button class="border dark w-100">Get started</button></a>
-                                                    <a href=""><button class="border w-100">Chat us</button></a>
+                                                    <a href="{% url 'login' %}" class="w-100"><button class="border dark w-100">Get Subscription</button></a>
+                                                    <a href=""><button class="border w-100">Check the details</button></a>
                                                 </div>
                                             </div>
                                             
@@ -331,22 +336,22 @@
                                     
                                     <div class="billing">
                                         <div class="item d-flex flex-column gap-3">
-                                            <div class="d-flex flex-column gap-3">
+                                            <div class="d-flex text-center flex-column gap-3">
                                                 <div class="d-flex ">
                                                     <box-icon name='leaf' size="lg" type='solid' flip='horizontal' color='#2d374b' ></box-icon>
                                                 </div>
-                                                <div class="h5">Premium Subscription</div>
-                                                <div class="h1 d-flex align-items-end">
+                                                <div class="h6">Premium Subscription</div>
+                                                <div class="h1 d-flex align-items-end justify-content-center">
                                                     <div>$2500</div>
-                                                    <div class="fs-6 pb-2">One Month Plan</div>
+                                                    <div class="fs-6 pb-2">1 month</div>
                                                 </div>
                                                 <div class="fs-5">
                                                     Cumulative interest  65%
                                                 </div>
                                                 <div class="fs-sm">Premuim features for up to 10years</div>
                                                 <div class="row d-flex gap-2">
-                                                    <a href="{% url 'login' %}" class="w-100"><button class="border dark w-100">Get started</button></a>
-                                                    <a href=""><button class="border w-100">Chat us</button></a>
+                                                    <a href="{% url 'login' %}" class="w-100"><button class="border dark w-100">Get Subscription</button></a>
+                                                    <a href=""><button class="border w-100">Check the details</button></a>
                                                 </div>
                                             </div>
                                             
@@ -364,22 +369,22 @@
                                     
                                     <div class="billing">
                                         <div class="item d-flex flex-column gap-3">
-                                            <div class="d-flex flex-column gap-3">
+                                            <div class="d-flex text-center flex-column gap-3">
                                                 <div class="d-flex ">
                                                     <box-icon name='leaf' size="lg" type='solid' flip='horizontal' color='#2d374b' ></box-icon>
                                                 </div>
-                                                <div class="h5">Mega Subscription</div>
-                                                <div class="h1 d-flex align-items-end">
+                                                <div class="h6">Mega Subscription</div>
+                                                <div class="h1 d-flex align-items-end justify-content-center" >
                                                     <div>$5000</div>
-                                                    <div class="fs-6 pb-2">One Month Plan</div>
+                                                    <div class="fs-6 pb-2">1 month</div>
                                                 </div>
                                                 <div class="fs-5">
                                                     Cumulative interest  80%
                                                 </div>
                                                 <div class="fs-sm">Mega features for up to 10years</div>
                                                 <div class="row d-flex gap-2">
-                                                    <a href="{% url 'login' %}" class="w-100"><button class="border dark w-100">Get started</button></a>
-                                                    <a href=""><button class="border w-100">Chat us</button></a>
+                                                    <a href="{% url 'login' %}" class="w-100"><button class="border dark w-100">Get Subscription</button></a>
+                                                    <a href=""><button class="border w-100">Check the details</button></a>
                                                 </div>
                                             </div>
                                             
@@ -650,10 +655,10 @@
                     <!-- End Col -->
                     <div class="col-6 col-sm-4 col-lg mb-7 mb-lg-0 d-flex gap-3 flex-column mr-5">
                         <div class=" text-white">Email Us Now</div>
-                        <input type="text" placeholder="Name" class="text-white form-group w-100 p-2 bg-dark border-rounded border-white outline-0">
-                        <input type="email" placeholder="Email" class="text-white w-100 p-2 bg-dark border-rounded border-white">
-                        <textarea name="" id="" placeholder="Your message" cols="20" rows="5" class="text-white w-100 p-2 bg-dark border-rounded border-white"></textarea>
-                        <input type="submit" class="btn btn-pointer border-rounded border-white">
+                        <input type="text" placeholder="Name" class="container border h-25 p-2 bg-dark text-white-70 w-100 opacity-7  ">
+                        <input type="email" placeholder="Email" class="border h-25 p-2 bg-dark text-white-70 w-100">
+                        <textarea name="" id="" placeholder="Your message" cols="20" rows="5" class="border h-25 p-2 bg-dark text-white-70 w-100"></textarea>
+                        <input type="submit" class="btn border h-25 p-2 bg-dark text-white-70 rounded border">
                     </div>
                     <!-- End Col -->
                    

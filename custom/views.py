@@ -1,4 +1,5 @@
 import math
+from os import error
 import random
 from tokenize import String
 from django.shortcuts import render, redirect
@@ -20,18 +21,20 @@ from django.contrib.auth.hashers import make_password
 
 class HomeView(View):
     def get(self, request):
+        
+        if request.user.is_authenticated:
+            return redirect(reverse('account', args=['auth', request.user.pk]))
         return render(request, 'home/index.html')
     
 
 
 class LoginView(View):
     def get(self, request):
-        print('login get request')
+        if request.user.is_authenticated:
+            return redirect(reverse('account', args=['auth', request.user.pk]))
         return render(request, 'login/login.html')
     
     def post(self, request):
-        print('login post request')
-        
         email = request.POST['email']
         password = request.POST['password']
 
@@ -43,7 +46,7 @@ class LoginView(View):
             login(request, user)
             return redirect(reverse('account', args=['auth',user.pk ]))
         
-        return render(request, 'login/login.html', {'email':email, 'password':password})
+        return render(request, 'login/login.html', {'email':email, 'password':password, 'error':True})
 
 
         
@@ -130,13 +133,13 @@ class AccountPageView(View, mixins.LoginRequiredMixin):
 
 class ProfileView(View, mixins.LoginRequiredMixin):
     def get(self, request, pk):
-        print(type(pk))
+        
         userProfile = PrimaryUser.objects.get(pk=pk)
         params = {
             'userProfile':userProfile
         }
 
-        return render(request, 'setting/setting.html', {'params':params})
+        return render(request, 'profile/index.html', {'params':params})
 
     def post(self, request):
         return render(request, '')
@@ -145,7 +148,7 @@ class ProfileView(View, mixins.LoginRequiredMixin):
 
 class DepositView(View, mixins.LoginRequiredMixin):
     def get(self, request):
-        return render(request, '')
+        return render(request, 'deposit/index.html')
 
     def post(self, request):
         return render(request, '')
@@ -177,4 +180,8 @@ class TopTraderView(View):
 class SubscriptionView(View):
     def get(self, request):
         return render(request, 'sub/sub.html')
+    
+class CurrencyConverterView(View):
+    def get(self, request):
+        return render(request, 'currency/index.html')
     
