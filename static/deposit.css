@@ -220,6 +220,7 @@
     cursor: pointer;
     position: relative;
     flex-shrink: 0;
+    background-color: white;
 }
 input:checked + .payment-method-item {
     border-color: var(--indigo-500);
