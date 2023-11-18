@@ -34,3 +34,5 @@ sidebarToggle.addEventListener("click", () => {
         localStorage.setItem("status", "open");
     }
 })
+
+body.classList.add("dark");

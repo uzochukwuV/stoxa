@@ -202,6 +202,7 @@ body.dark .switch:before{
     width: calc(100% - 250px);
     padding: 10px 14px;
     transition: var(--tran-05);
+    min-width: 400px;
 }
 nav.close ~ .dashboard{
     left: 73px;
@@ -400,6 +401,7 @@ nav.close ~ .dashboard .top{
     .dash-content .boxes .box{
         width: calc(100% / 2 - 15px);
         margin-top: 15px;
+        
     }
 }
 @media (max-width: 560px) {
