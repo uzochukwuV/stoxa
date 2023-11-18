@@ -306,7 +306,7 @@ nav.close ~ .dashboard .top{
     border-radius: 12px;
     width: calc(100% / 4 - 15px);
     padding: 15px 20px;
-    background-color: var(--box1-color);
+    background-color: var(--box3-color);
     transition: var(--tran-05);
 }
 .boxes .box i{
@@ -324,12 +324,12 @@ nav.close ~ .dashboard .top{
     font-weight: 500;
     color: var(--text-color);
 }
-.boxes .box.box2{
+/* .boxes .box.box2{
     background-color: var(--box2-color);
 }
 .boxes .box.box3{
     background-color: var(--box3-color);
-}
+} */
 .dash-content .activity .activity-data{
     display: flex;
     justify-content: space-between;
