@@ -35,4 +35,4 @@ sidebarToggle.addEventListener("click", () => {
     }
 })
 
-// body.classList.add("dark");
+body.classList.remove("dark");
