@@ -1,0 +1,32 @@
+POST http://127.0.0.1:8000/api/login
+Content-Type: application/json
+
+{"username":"signor", "password":"passSize2"}
+
+###
+
+POST http://127.0.0.1:8000/api/signup
+Content-Type: application/json
+
+{"username":"signor", "password":"passSize2", "email":"signor@gmail.com"}
+
+###
+
+
+GET http://127.0.0.1:8000/api/token
+Content-Type: application/json
+Authorization: Token fc81a6a26ecf5d51611f72029748a74ea85cf6f2
+
+
+{}
+
+###
+
+GET http://127.0.0.1:8000/snippets/4
+Content-Type: application/json
+Authorization: Token 450cd2e5702ee5315ede2b69dea41533fe866d6b
+
+
+{
+    
+}

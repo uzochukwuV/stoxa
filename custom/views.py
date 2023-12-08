@@ -61,7 +61,7 @@ class RegisterValidateEmailView(View):
         
         email = data['email'] or ''
 
-        if PrimaryUser.objects.filter(email=email).exists():
+        if User.objects.filter(email=email).exists():
             return JsonResponse({'error':'email already exits'})
         
         return JsonResponse({'message':'not taken'})
@@ -72,7 +72,7 @@ class RegisterValidateUsernameView(View):
         
         username = data['username'] or ''
 
-        if PrimaryUser.objects.filter(username=username).exists():
+        if User.objects.filter(username=username).exists():
             return JsonResponse({'error':'username already exits'})
         
         return JsonResponse({'message':'ok that\'s a great choice'})
@@ -96,7 +96,7 @@ class RegisterView(View):
         else:
             print('user is none')
             
-            new_user =PrimaryUser.objects.create(email=email,username=username, password=make_password(password))
+            new_user =User.objects.create(email=email,username=username, password=make_password(password))
             new_user.save()
             return redirect(reverse('login'))
         
@@ -112,10 +112,10 @@ class AccountPageView(View, mixins.LoginRequiredMixin):
         randomNum = math.floor(7.9)
         
         
-        user = PrimaryUser.objects.get(pk=pk)
+        user = User.objects.get(pk=pk)
         traders = Trader.objects.all()[:10]
 
-        print(user.total_balance)
+        
         params = {
             'user':user,
             "login": login,
@@ -134,7 +134,7 @@ class AccountPageView(View, mixins.LoginRequiredMixin):
 class ProfileView(View, mixins.LoginRequiredMixin):
     def get(self, request, pk):
         
-        userProfile = PrimaryUser.objects.get(pk=pk)
+        userProfile = User.objects.get(pk=pk)
         params = {
             'userProfile':userProfile
         }
@@ -184,4 +184,5 @@ class SubscriptionView(View):
 class CurrencyConverterView(View):
     def get(self, request):
         return render(request, 'currency/index.html')
-    
+
+

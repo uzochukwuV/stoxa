@@ -17,7 +17,7 @@ urlpatterns = [
     path('copy/', TopTraderView.as_view(), name='copy'),
     path('sub/', SubscriptionView.as_view(), name='sub'),
     path('currency/', CurrencyConverterView.as_view(), name='currency'),
-    path('acccount/profile/auth/<int:pk>/', ProfileView.as_view(), name='profile'),
+    path('acccount/profile/<int:pk>/', ProfileView.as_view(), name='profile'),
 
     
 

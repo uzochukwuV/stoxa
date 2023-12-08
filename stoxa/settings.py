@@ -17,7 +17,6 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 
-print(os.environ['POSTGRES_PASSWORD'])
 
 
 
@@ -36,9 +35,9 @@ SECRET_KEY = 'django-insecure-z4aj@q&&75v_8lv&fede7@c-3h&503ju$5$rdcg=^dwbeg=pjh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', '*']
-AUTH_USER_MODEL = 'custom.PrimaryUser'
+ALLOWED_HOSTS = ['http://127.0.0.1:3000', '.vercel.app', '*']
 
+CORS_ORIGIN_ALLOW_ALL = True
 
 WSGI_APPLICATION = 'stoxa.wsgi.app'
 
@@ -52,6 +51,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'corsheaders',
+
     
     
 ]
@@ -67,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'stoxa.urls'
@@ -139,6 +143,17 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+# Emails
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "vic.ezealor@gmail.com"
+EMAIL_HOST_PASSWORD = "szvohmhicnwhtnla"
+
 
 
 

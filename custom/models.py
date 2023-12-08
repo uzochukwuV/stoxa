@@ -8,38 +8,18 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 
+class UserAccount(models.Model):
+    total_deposited =  models.IntegerField(null=True, blank=True, default=0)
+    total_withdrawn = models.IntegerField(null=True, blank=True, default=0)
+    stake = models.IntegerField(null=True, blank=True, default=0)
+    trade = models.IntegerField(null=True, blank=True, default=0)
+    plan_bonus = models.IntegerField(null=True, blank=True, default=0)
+    owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_account')
+    isPremium = models.BooleanField(default=False)
+    isVerified = models.BooleanField(default=False)
 
-class PrimaryUser(AbstractUser):
-    email = models.EmailField(unique=True, max_length=225)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS =['username']
-    
 
-    
-    
-    phone_number    = models.CharField(max_length=11, blank=True, null=True)
-    city            = models.CharField(max_length=100, blank=True, null=True)
-    date_of_birth   = models.DateField(blank=True, null=True) 
-    profile_pics    = models.ImageField(upload_to='media', blank=True, null=True)
-    country         = models.CharField(max_length=100, blank=True, null=True)
-    isPremium       = models.BooleanField(default=False)
-    isVerified      = models.BooleanField(default=False)
-    total_balance   = models.IntegerField(default=0)
-    sub_balance     = models.IntegerField(default=0)
-    copy_balance    = models.IntegerField(default=0)
-    
-
-    
-
-    class Meta:
-        verbose_name_plural = 'PrimaryUsers'
-
-    def get_absolute_url(self):
-        return reverse('primary', self.pk)
-    
-    def __str__(self) -> str:
-        return f'{self.get_full_name()} {self.pk}'
 
 
 class Transactions(models.Model):
@@ -50,8 +30,8 @@ class Transactions(models.Model):
 
     transaction_type = models.CharField(choices=listChoice, max_length=100, blank=True, null=True)
     amount = models.IntegerField( blank=True, null=True)
-    depositor = models.ForeignKey(PrimaryUser, on_delete=models.CASCADE, related_name='depositor')
-    reciever = models.ForeignKey(PrimaryUser, on_delete=models.CASCADE, related_name='reciever')
+    depositor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='depositor')
+    reciever = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reciever')
     time_of_transaction = models.DateTimeField(auto_created=True, auto_now_add=True)
     unique_id = models.UUIDField(
          primary_key = True,
@@ -75,13 +55,13 @@ class Wallet(models.Model):
           ('BNB', 'binance')
     )
     wallet_type = models.CharField(choices=listChoice, max_length=100, blank=True, null=True)
-    owner = models.ForeignKey(PrimaryUser, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     address = models.CharField(max_length=225, blank=True, null=True)
     balance = models.IntegerField(verbose_name='balance')
 
 
 class AccountInfo(models.Model):
-    owner = models.OneToOneField(PrimaryUser, on_delete=models.CASCADE)
+    owner = models.OneToOneField(User, on_delete=models.CASCADE)
     account_number = models.CharField(max_length=225, blank=True, null=True)
     bank = models.CharField(max_length=225, blank=True, null=True)
     account_name = models.CharField(max_length=225, blank=True, null=True)
@@ -89,12 +69,14 @@ class AccountInfo(models.Model):
 
 class Subscription(models.Model):
     listChoice = (
-        ('Deposit', 'deposit'),
-        ('Withdrawal', 'withdrawal')
+        ('Premium', 'Premium'),
+        ('Gold', 'Gold'),
+        ('Silver', 'Silver'),
+        ('Bronze', 'Bronze'),
     )
     balance = models.IntegerField(default=0)
     sub_type = models.CharField(choices=listChoice, max_length=100, blank=True, null=True)
-    subscriber = models.ForeignKey(PrimaryUser, on_delete=models.CASCADE, related_name='subscriber')
+    subscriber = models.ForeignKey(UserAccount, on_delete=models.CASCADE, related_name='subscriber')
     
 
 class Trader(models.Model):
