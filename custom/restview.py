@@ -100,7 +100,6 @@ class UserAccountList(generics.ListCreateAPIView):
 
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
         return self.create(request, *args, **kwargs)
 
 
