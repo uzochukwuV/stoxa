@@ -1,6 +1,6 @@
 pip install -r requirements.txt
 
-python3.9 manage.py squashmigrations
+python3.9 manage.py squashmigrations custom
 
 python3.9 manage.py makemigrations
 
