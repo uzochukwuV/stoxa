@@ -1,10 +1,10 @@
 pip install -r requirements.txt
 
-python3.9 manage.py squashmigrations custom
-
-python3.9 manage.py makemigrations
+python3.9 manage.py makemigrations custom
 
 python3.9 manage.py migrate
+
+python3.9 manage.py migrate custom
 
 python manage.py createsuperuserwithpassword \
          --username admin \
