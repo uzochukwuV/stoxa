@@ -7,6 +7,9 @@ from .models import *
 admin.site.register(Transactions)
 admin.site.register(Subscription)
 admin.site.register(Wallet)
+admin.site.register(UserAccount)
+admin.site.register(Trader)
+admin.site.register(AccountInfo)
 
 
 

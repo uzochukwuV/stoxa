@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 import uuid
-from django.contrib.auth.models import AbstractUser
+
 
 # Create your models here.
 
