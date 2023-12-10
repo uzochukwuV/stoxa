@@ -6,7 +6,7 @@ python3.9 manage.py makemigrations
 
 
 
-python3.9 manage.py migrate custom
+python3.9 manage.py migrate
 
 python manage.py createsuperuserwithpassword \
          --username admin \

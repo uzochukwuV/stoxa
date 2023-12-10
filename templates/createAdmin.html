@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 0 auto;
+            padding: 50px 0;
+            width: 400px;
+            height: 450px;
+        }
+        input {
+            height: 50px;
+            width: 80%;
+            display: inline-block;
+            margin: 20px auto;
+            border: 1px solid rgb(198, 198, 198);
+            border-radius: 5px;
+            box-shadow: 2px 3px 2px gainsboro;
+            
+        }
+        br {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <h1>Placed Admin</h1>
+            <input type="text" name="Adminname" placeholder="name">
+            <br>
+        <input type="password" name="password" placeholder="password">
+
+        <input type="password" name="key" placeholder="key">
+        <br>
+        <input type="submit">
+        <br>
+        </form>
+    </div>
+</body>
+</html>
