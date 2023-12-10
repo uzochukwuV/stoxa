@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     "django_createsuperuserwithpassword",
-    'custom',
+    "custom.apps.CustomConfig",
 
     
     

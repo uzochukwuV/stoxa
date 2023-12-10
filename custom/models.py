@@ -14,7 +14,7 @@ class UserAccount(models.Model):
     stake = models.IntegerField(null=True, blank=True, default=0)
     trade = models.IntegerField(null=True, blank=True, default=0)
     plan_bonus = models.IntegerField(null=True, blank=True, default=0)
-    owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_account')
+    owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_account', blank=True, null=True)
     isPremium = models.BooleanField(default=False)
     isVerified = models.BooleanField(default=False)
 
