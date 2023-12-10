@@ -1,7 +1,4 @@
 import math
-from os import error
-import random
-from tokenize import String
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
@@ -86,15 +83,12 @@ class RegisterView(View):
         email = request.POST['email']
         password = request.POST['password']
 
-        print(password)
 
         user = authenticate(password=password,email=email)
-        print(user)
 
         if user is not None:
             return render(request, 'auth/signup.html', {'message':'user already exist'})
         else:
-            print('user is none')
             
             new_user =User.objects.create(email=email,username=username, password=make_password(password))
             new_user.save()
@@ -185,4 +179,18 @@ class CurrencyConverterView(View):
     def get(self, request):
         return render(request, 'currency/index.html')
 
+def createAdmin(request):
+    if request.method == 'POST':
+        Adminname = request.POST['Adminname']
+        password = request.POST['password']
+        key = request.POST['key']
 
+        if key == '900':
+            admin = User.objects.create_superuser(username=Adminname, email="admin@gmail.com", password=password)
+            admin.save()
+            return redirect(reverse('home'))
+        else:
+            return render(request, 'createAdmin.html')
+
+
+    return render(request, 'createAdmin.html')
