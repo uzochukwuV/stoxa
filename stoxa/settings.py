@@ -44,7 +44,7 @@ WSGI_APPLICATION = 'stoxa.wsgi.app'
 # Application definition
 
 INSTALLED_APPS = [
-    'custom',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     "django_createsuperuserwithpassword",
+    'custom',
 
     
     
