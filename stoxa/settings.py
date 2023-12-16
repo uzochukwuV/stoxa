@@ -35,16 +35,13 @@ SECRET_KEY = 'django-insecure-z4aj@q&&75v_8lv&fede7@c-3h&503ju$5$rdcg=^dwbeg=pjh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://127.0.0.1:3000', '.vercel.app', '*']
-
-CORS_ORIGIN_ALLOW_ALL = True
 
 WSGI_APPLICATION = 'stoxa.wsgi.app'
 
 # Application definition
 
 INSTALLED_APPS = [
-    
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders',
+    
     "django_createsuperuserwithpassword",
     "custom.apps.CustomConfig",
 
@@ -62,9 +59,23 @@ INSTALLED_APPS = [
 ]
 
 
+CORS_ALLOW_HEADERS = ['content-type', 'contenttype']
+CORS_ALLOW_METHODS = ['POST', "GET"]
+
+ALLOWED_HOSTS = ['*']
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOWED_ORIGINS = [
+        'http://127.0.0.1:3000', 'http://localhost:3000'
+    ]
+
+
+
 WSGI_APPLICATION = 'stoxa.wsgi.app'
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -72,7 +83,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-     'corsheaders.middleware.CorsMiddleware',
+     
 ]
 
 ROOT_URLCONF = 'stoxa.urls'

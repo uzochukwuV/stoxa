@@ -9,6 +9,11 @@ import uuid
 
 
 class UserAccount(models.Model):
+    fullname = models.CharField(max_length=100, null=True, blank=True)
+    country = models.CharField(max_length=100, null=True, blank=True)
+    phone = models.CharField(max_length=100, null=True, blank=True)
+    gender = models.CharField(max_length=1, null=True, blank=True, choices=(("M","MAle"), ("F", "FEMALE"),))
+    date_of_birth = models.DateField( null=True, blank=True)
     total_deposited =  models.IntegerField(null=True, blank=True, default=0)
     total_withdrawn = models.IntegerField(null=True, blank=True, default=0)
     stake = models.IntegerField(null=True, blank=True, default=0)

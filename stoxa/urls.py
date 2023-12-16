@@ -12,5 +12,6 @@ urlpatterns = [
     re_path('api/token', TestToken),
     path('snippets/', UserAccountList.as_view()),
     path('snippets/<int:pk>/', UserAccountDetail.as_view()),
+    path('user/account', UserAccountView),
     path('create/admin', views.createAdmin, name="createadmin")
 ]
